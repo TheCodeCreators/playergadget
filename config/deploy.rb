@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock "3.9.0"
 
-set :application, "playergadget"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, 'playergadget'
+set :repo_url, 'git@gitlab.thecodecreators.com:TheCodeCreators/playergadget.git'
 
 set :deploy_to, '/home/rp/playergadget'
 
