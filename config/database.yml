@@ -1,0 +1,35 @@
+<%
+require 'etc'
+pool_size =
+  # Web: max workers * max threads
+  ENV.fetch('WEB_CONCURRENCY', 3).to_i * ENV.fetch('MAX_THREADS', 5).to_i +
+  # ActiveJob Async max thread pool size
+  Etc.nprocessors
+ERB
+%>
+
+development:
+  adapter: postgresql
+  encoding: utf-8
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: playergadget_dev
+  pool: <%= pool_size %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+test:
+  adapter: postgresql
+  encoding: utf-8
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: playergadget_test
+  pool: <%= pool_size %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+production:
+  adapter: postgresql
+  encoding: utf-8
+  database: playergadget
+  pool: <%= pool_size %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
