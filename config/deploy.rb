@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # config valid only for current version of Capistrano
-lock "3.9.0"
+lock '3.9.0'
 
 set :application, 'playergadget'
 set :repo_url, 'git@gitlab.thecodecreators.com:TheCodeCreators/playergadget.git'
