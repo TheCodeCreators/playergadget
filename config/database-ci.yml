@@ -1,4 +1,5 @@
 test:
+  host: postgres.local
   adapter: postgresql
   encoding: utf8
   database: playergadget_test
