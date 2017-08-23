@@ -12,10 +12,12 @@
     <div class="full-background">
     </div>
     <%= render 'layouts/navbar' %>
-    <div class="container-fluid main-container">
-      <%= yield %>
-    </div>
-    <style type="text/css">
+      <div class="container-fluid">
+        <div class="main-container">
+          <%= yield %>
+        </div>
+      </div>
+      <style type="text/css">
     <!--
     .full-background {
       position: fixed;

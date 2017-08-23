@@ -19,8 +19,9 @@ body {
   }
 }
 .main-container {
+  margin: auto;
   padding-top: 100px;
-  width: 1080px;
+  max-width: 1080px;
   background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.5));
 }
 .main {
@@ -29,7 +30,7 @@ body {
 .side {
   margin-top: 15px;
   float: right;
-  width: 300px;
+  width: 330px;
   .side-block {
     background: white;
     margin-bottom: 15px;
@@ -47,9 +48,17 @@ body {
 .article-preview {
   border-radius: 2px;
   margin: 15px;
-  height: 200px;
   background: white;
   box-shadow: 1px 0px 5px black;
+  &.medium {
+    height: 300px;
+  }
+  &.small {
+    min-height: 200px;
+  }
+  &.large {
+    height: 400px;
+  }
   .preview-title {
     display: block;
     font-size: 14px;
