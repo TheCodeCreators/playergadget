@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe HomeController, type: :controller do
   before(:each) do
+    @user = create(:user)
   end
 
   describe '#index' do
