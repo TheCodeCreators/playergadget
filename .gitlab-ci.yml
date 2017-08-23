@@ -1,5 +1,5 @@
 services:
-  - postgresql:latest
+  - postgres:latest
 before_script:
   - gem install bundle --no-ri --no-rdoc
   - bundle install --jobs $(nproc) --path vendor/
