@@ -11,7 +11,13 @@ set :deploy_to, '/home/rp/playergadget'
 set :rvm_ruby_version, '2.4.1@playergadget'
 
 set :linked_files, fetch(:linked_files, []).push('.env')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_dirs, fetch(:linked_dirs, []).push('log',
+                                               'tmp/pids',
+                                               'tmp/cache',
+                                               'tmp/sockets',
+                                               'vendor/bundle',
+                                               'public/system',
+                                               'public/uploads')
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -24,7 +30,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
-# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+# set :format_options, command_output: true, log_file: "log/capistrano.log",
+# color: :auto, truncate: :auto
 
 # Default value for :pty is false
 # set :pty, true
