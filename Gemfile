@@ -81,4 +81,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'capybara', groups: %i[test]
 gem 'rspec-rails', groups: %i[test]
+gem 'factory_girl_rails', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
