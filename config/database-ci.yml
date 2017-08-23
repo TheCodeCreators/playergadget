@@ -1,7 +1,6 @@
 test:
-  host: postgresq
   adapter: postgresql
   encoding: utf8
   database: playergadget_test
-  username: root
-  password: password
+  username: postgres
+  password: example
