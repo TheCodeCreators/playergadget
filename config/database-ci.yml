@@ -1,7 +1,7 @@
 test:
-  host: postgres.local
+  host: postgres
   adapter: postgresql
   encoding: utf8
   database: playergadget_test
-  username: postgres
-  password: example
+  username: runner
+  password: 

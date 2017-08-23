@@ -1,5 +1,9 @@
 services:
   - postgres:latest
+variables:
+  POSTGRES_DB: playergadget_test
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
 before_script:
   - gem install bundle --no-ri --no-rdoc
   - bundle install --jobs $(nproc) --path vendor/
