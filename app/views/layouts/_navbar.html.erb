@@ -1,5 +1,50 @@
-<nav class="navbar navbar-light bg-faded pg-nav">
-  <div class="container-fluid pg-logo">
-    <img src="/assets/header_logo.png">
+<nav class="navbar navbar-expand-md sticky-top navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/"><img src="/assets/header_logo.png"></a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <div class="user-avatar-navbar">
+              <span class="user-name-navbar blue-link">
+                Welcome, <%= current_user.name %>
+              </span>
+              <span class="caret"></span>
+            </div>
+          </a>
+          <ul class="dropdown-menu inverse-dropdown" role="menu">
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <a href="/admin">Admin Area</a>
+              </li class="nav-item">
+              <li class="divider">
+              </li class="nav-item">
+            <% end %>
+            <li>
+              <%= link_to "Logout", main_app.destroy_user_session_path,
+               method: :delete, :class => 'navbar-link'  %>
+            </li>
+          </ul>
+      <% else %>
+        <li class="nav-item">
+          <span class="navbar-link blue-link" data-toggle="modal" data-target="#loginModal">
+            SIGN IN
+          </span>
+        </li>
+        <li class="nav-item">
+          <span class="navbar-link blue-link" data-toggle="modal" data-target="#signUpModal">
+            SIGN UP
+          </span>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </nav>
+
+<!-- Login Modal -->
+<%= render 'layouts/login_modal' %>
+<!-- SignUP Modal -->
+<%= render 'layouts/sign_up_modal' %>

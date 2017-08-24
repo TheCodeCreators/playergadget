@@ -4,23 +4,9 @@
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-.pg-nav {
-  z-index: 1;
-  position: fixed;
-  background: linear-gradient(#5D5D5D, #212121);
-  width: 100%;
-  color: #00708c;
-  .pg-logo {
-    width: 1080px;
-    padding-bottom: 40px;
-    img {
-      height: 35px;
-    }
-  }
-}
 .main-container {
   margin: auto;
-  padding-top: 100px;
+  margin-top: 20px;
   max-width: 1080px;
   background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.5));
 }
