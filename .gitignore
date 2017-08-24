@@ -30,3 +30,6 @@
 
 # ignore redis database
 .dump.rdb
+
+# Ignore
+.DS_Store
