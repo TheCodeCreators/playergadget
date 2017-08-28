@@ -1,0 +1,56 @@
+// TODO improve colors
+
+#flash {
+  position: fixed;
+  float: right;
+  right: -400px;
+  z-index: 100;
+  top: 16px;
+  margin: 40px 10px 0 0;
+  padding: 40px 10px 40px 10px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 0.5s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+  .close {
+    position: absolute;
+    top: 0;
+    opacity: 0.9;
+    right: 2px;
+   }
+   &.alert-danger {
+     background-color: #333333;
+     border: 1px solid #b8a779;
+     .close {
+       color: #a94442;
+     }
+     .text {
+       border: 1px solid #b8a779;
+       border-radius: 5px;
+       padding: 10px;
+       background-color: #f2dede;
+       color: #a94442;
+     }
+   }
+   &.alert-success {
+     background-color: #333333;
+     border: 1px solid #b8a779;
+     .close {
+       color: #3c763d;
+     }
+     .text {
+       border: 1px solid #b8a779;
+       border-radius: 5px;
+       padding: 10px;
+       background-color: #dff0d8;
+       color: #3c763d;
+     }
+   }
+}
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
+}

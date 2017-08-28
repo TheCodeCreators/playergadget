@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="users-page-title">
+        Ips
+      </h3>
+    </div>
+    <div class="col-md-6">
+      <%= link_to new_admin_ip_path do %>
+        <span class="btn btn-success pull-right">
+          New Ip
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="table-responsive users-table">
+            <table class="table table-striped">
+             <!-- table headers -->
+             <thead>
+               <tr>
+                 <th>Id</th>
+                 <th>Label</th>
+                 <th>Address</th>
+                 <th>Created_at</th>
+                 <th>Actions</th>
+               </tr>
+             </thead>
+             <!-- companies information -->
+             <tbody>
+               <% @ips.each do |ip| %>
+                 <tr>
+                   <td><%= link_to ip.id, edit_admin_ip_path(ip) %></td>
+                   <td><%= ip.label %></td>
+                   <td><%= ip.addr %></td>
+                   <td><%= ip.created_at.strftime("%b %d, %Y %H:%M") %></td>
+                   <td><%= link_to 'X', admin_ip_path(ip), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+                 </tr>
+               <% end %>
+             </tbody>
+            </table>
+            <div class="apple_pagination">
+              <%= will_paginate @ips %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

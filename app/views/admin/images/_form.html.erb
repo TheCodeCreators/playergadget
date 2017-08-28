@@ -1,0 +1,64 @@
+<%= form_for [:admin,  @image], html: {class:"dropzone",  id:"myDrop"} do |f| %>
+  <div class="row">
+    <div class="ticket-form-errors form-errors col-md-12">
+      <% if @image.errors.any? %>
+        Errors:
+        <% @image.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6 drag-area">
+
+    <div class="form-group drag-box text-center" id="dropzoneClickableArea">
+      <div id="dropzonePreview">
+      </div>
+      <div class="inside-uploader dz-message">
+        <img src="/assets/upload.png">
+        <h1 class="drag-and-drop text-center">
+          Drag&Drop your file
+        </h1>
+        <span class="drag-and-drop">
+          or
+          <strong>click</strong> to upload
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group form-inline row">
+      <% if @image.file.present? %>
+        <div class="form-group col-md-12 with-margin-bottom attachment">
+          <h5>Current file:</h5>
+          <%= image_tag @image.file_url, class: "image-preview" %>
+        </div>
+      <% end %>
+
+      <div class="col-md-11 with-btn fallback">
+        <%= f.file_field :file, type:'file', class:"btn btn-inverse my-file-btn hidden" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="form-group form-inline">
+      <lable class="with-bold-font">
+        Info
+      </lable>
+      <%= f.text_field :info, value: @image.info, class:'form-control image-input'%>
+    </div>
+
+    <div class="form-group form-inline">
+      <lable class="with-bold-font">
+        Tag list:
+      </lable>
+      <%= f.text_field :tag_list, value: @image.tag_list, class:'form-control image-input'%>
+    </div>
+
+    <div class="form-group with-margin-top create-ticket">
+      <%= f.submit "Submit", class:"btn btn-add-ticket" %>
+    </div>
+  </div>
+<% end %>

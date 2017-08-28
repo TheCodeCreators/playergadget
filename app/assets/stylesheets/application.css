@@ -12,8 +12,6 @@
  *
  *= require font-awesome.min
  *= require bootstrap.min
- *= require bootstrap-reboot.min
- *= require bootstrap-grid.min
  *= require_tree .
  *= require_self
  */

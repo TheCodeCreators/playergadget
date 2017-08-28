@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="users-page-title">
+        Images
+      </h3>
+    </div>
+    <div class="col-md-6">
+      <%= link_to new_admin_image_path do %>
+        <span class="btn btn-success pull-right">
+          New Image
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="table-responsive users-table">
+            <table class="table table-striped">
+              <!-- table headers -->
+              <thead>
+                <tr>
+                  <th>Preview</th>
+                  <th>Title</th>
+                  <th>Address</th>
+                  <th>Info</th>
+                  <th>Tags</th>
+                </tr>
+              </thead>
+              <!-- companies information -->
+              <tbody>
+                <% @images.each do |image| %>
+                  <tr>
+                    <td>
+                      <%= link_to admin_image_path(image) do %>
+                        <%= image_tag image.file_url, class: "image-preview" %>
+                      <% end %>
+                    </td>
+                    <td><%= link_to image.info, admin_image_path(image) %></td>
+                    <td><%= image.file_url %></td>
+                    <td><%= image.created_at.strftime("%b %d, %Y %H:%M") %></td>
+                    <td><%= image.tag_list %></td>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <div class="apple_pagination">
+              <%= will_paginate @images %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

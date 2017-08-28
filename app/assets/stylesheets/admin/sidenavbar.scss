@@ -1,0 +1,226 @@
+// conversion to scss was a bit hackish, please remake when possible.
+// till then, it works.
+$blue: #30b0d5;
+$dark-blue: #373737;
+
+.side-spacing {
+  margin-left: 150px;
+  transition: 0.2s all ease;
+  &.not-expanded {
+    margin-left: 70px;
+  }
+}
+
+#wrapper {
+  .header {
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 51px;
+    width: 150px;
+    z-index: 10301 !important;
+    background: $blue;
+    transition: 0.2s all ease;
+    a {
+      color: #fff;
+      &:hover {
+          color: $dark-blue;
+      }
+    }
+    .small {
+      position: fixed;
+      visibility: hidden;
+    }
+    .large {
+      position: fixed;
+      visibility: visible;
+    }
+    &.not-expanded {
+      width: 70px;
+      .small {
+        visibility: visible;
+      }
+      .large {
+        visibility: hidden;
+      }
+    }
+
+  }
+}
+.sidebar {
+  font-family: 'Open Sans Semibold';
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10300;
+  width: 150px;
+  padding-top: 70px;
+  background: #373737;
+  overflow: auto;
+  transition: 0.2s all ease;
+  a {
+    color: #fff;
+  }
+  .fa-fw {
+    padding-right: 10px;
+  }
+
+  .nav > li > a:hover {
+    background: #303030;
+    color: white;
+  }
+  .active {
+    border-left: 4px solid $blue;
+    background: #303030;
+  }
+  &.not-expanded {
+    position: fixed;
+    top: 0;
+    padding-bottom: 85px;
+    left: 0;
+    z-index: 10300;
+    width: 70px;
+    padding-top: 50px;
+    background: #2C3E50;
+    overflow: auto;
+    clear: both;
+    width: 70px;
+    .fa-fw {
+      font-size: 1em;
+    }
+    .option {
+      visibility: hidden;
+    }
+  }
+
+
+  @media(min-width:768px) {
+    .sidebar .current-user .toggle-expand {
+      z-index: 1;
+      position: absolute;
+      width: 250px;
+      margin-top: 51px;
+    }
+  }
+
+  .toggle-expand {
+    position: fixed;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    left:0;
+    padding-right: 16px;
+    bottom: 0;
+    height: 45px;
+    width: 150px;
+    z-index: 100;
+    background: #424242;
+    cursor: pointer;
+    transition: 0.2s all ease;
+    .arrows {
+      color: #1E3246;
+      font-size: 22px;
+      text-align: center;
+    }
+    .right {
+      position: fixed;
+      visibility: hidden;
+    }
+    .left {
+      position: fixed;
+      visibility: visible;
+    }
+    &.not-expanded {
+      position: fixed;
+      padding-top: 15px;
+      padding-bottom: 20px;
+      left:0;
+      bottom: 0;
+      height: 45px;
+      width: 70px;
+      .right {
+        visibility: visible;
+      }
+      .left {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+#wrapper {
+  $bgDefault      : #30b0d5;
+  $bgHighlight    : #30b0d5;
+  $colDefault     : #ffffff;
+  $colHighlight   : #373737;
+  $dropDown       : true;
+  .ddm {
+    > li > .dropdown-menu {
+        background-color: $bgDefault;
+        > li {
+          > a {
+            color: $colDefault;
+            &:hover,  &:focus {
+              color: $colHighlight;
+              background-color: $bgHighlight; }}
+          > .divider {
+            background-color: $bgHighlight;}}}
+    .open .dropdown-menu > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-default {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .navbar-text {
+      color: $colDefault; }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $colDefault;
+          &:hover,  &:focus {
+            color: $colHighlight; }}}
+      .ddm {
+        > .active {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}
+        > .open {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}}
+      .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+          background-color: $bgHighlight; }
+        .icon-bar {
+          background-color: $colDefault; }}
+      .navbar-collapse,
+      .navbar-form {
+        border-color: $colDefault; }
+      .navbar-link {
+        color: $colDefault;
+        &:hover {
+          color: $colHighlight; }}}
+    @media (max-width: 767px) {
+      .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+          color: $colDefault;
+          &:hover, &:focus {
+            color: $colHighlight; }}
+        > .active {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}}
+    }
+    .with-margin-right {
+      margin-right: 41px;
+    }
+  }
+}

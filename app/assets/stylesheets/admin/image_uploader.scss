@@ -1,0 +1,56 @@
+.drag-area {
+  .drag-box {
+    height: 43vh;
+    width:  100%;
+    max-width: 81vw;
+    border: 5px dashed #ccc;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  .inside-uploader {
+    margin-top: 11vh;
+  }
+
+  .drag-and-drop {
+    margin-top: 15px;
+    font-family: 'Open Sans Regular';
+    font-size: 44,8pt;
+    color: #aeaeae;
+  }
+}
+.image-input {
+  width: 75%;
+  margin-left: 5px;
+  text-align: right;
+  background: #f7f7f7;
+  &.smaller {
+    margin-left: 1px;
+  }
+}
+
+.dz-preview {
+  position: relative;
+  display: inline-block;
+  margin: 0px;
+  vertical-align: top;
+  border: none;
+  padding: 0px 0px 0px 0px;
+}
+
+#dropzonePreview {
+  margin-top: 42px;
+}
+
+.dz-error-mark, .dz-success-mark {
+  display: none;
+}
+
+.form-errors {
+  font-family: "Open Sans Semibold";
+  font-size: 17px;
+  clear: both;
+}
+div.field_with_errors {
+  display: inline;
+}

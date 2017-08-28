@@ -1,14 +1,28 @@
 .blue-link {
-  float: right;
   color: #30b0d5 !important;
   cursor: pointer;
-  padding-right: .5rem;
-  padding-left: .5rem;
-  text-shadow: 1px 1px 1px #333;
 }
-.navbar.scrolled {
-  background-color: rgba(0,0,0,0.9);
-  transition: background-color 200ms linear;
+.navbar {
+  background-color: rgba(0,0,0,0.7);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  &.transparent {
+    border: 1px solid #333;
+    box-shadow: 2px 2px 2px #30b0d5;
+    height: 90px;
+  }
+  img {
+    height: 62px;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  &.scrolled {
+    height: 50px;
+    background-color: rgba(0,0,0,0.7);
+    img {
+      height: 30px;
+    }
+  }
 }
 .btn-custom2 {
   background-color: hsl(206, 95%, 12%) !important;
@@ -26,42 +40,43 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
   -webkit-font-smoothing: antialiased;
 }
-
 a {
   text-decoration: none!important;
 }
-
 .btn-custom {
   background-color: #30b0d5 !important;
   color: #fff !important;
 }
-
 .hr-or-divider {
   margin: 10px 0 10px;
 }
-
 .hr-or-divider hr {
   width: 42%;
 }
-
 hr {
   margin-top: 10px;
   margin-bottom: 18px;
   border: 0;
   border-top: 1px solid #ccc;
 }
-
 .hr-or-divider span {
   display: inline-block;
   font-size: 15px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-
 .login-button {
   clear: both;
 }
-
 .with-margin-top {
   margin-top: 50px;
+}
+.navbar.transparent.navbar-inverse .navbar-inner {
+  border-width: 0px;
+  -webkit-box-shadow: 0px 0px;
+  box-shadow: 0px 0px;
+  background-color: rgba(0,0,0,0.0);
+  background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+  background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+  background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
 }

@@ -6,20 +6,20 @@ body {
 }
 .main-container {
   margin: auto;
-  margin-top: 20px;
+  margin-top: 120px;
   max-width: 1080px;
-  background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.5));
+  padding-top: 15px;
+  background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.2));
+}
+.row {
+  margin: 0;
+  margin-bottom: 15px;
 }
 .main {
-  width: 735px;
 }
 .side {
-  margin-top: 15px;
-  float: right;
-  width: 330px;
   .side-block {
     background: white;
-    margin-bottom: 15px;
     &.side-1 {
       height: 200px;
     }
@@ -33,7 +33,6 @@ body {
 }
 .article-preview {
   border-radius: 2px;
-  margin: 15px;
   background: white;
   box-shadow: 1px 0px 5px black;
   &.medium {
@@ -59,7 +58,7 @@ body {
     font-size: 12px;
   }
   .right-preview-area {
-    float: right;
+
   }
   .preview-comments {
     color: #03B9FF;

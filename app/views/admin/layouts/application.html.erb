@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheCodecreators</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'admin/layouts/sidenavbar' %>
+    <div id="wrapper">
+      <%= render 'admin/layouts/header' %>
+      <div id="page-wrapper" class="side-spacing">
+        <%= render 'admin/layouts/flash' %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

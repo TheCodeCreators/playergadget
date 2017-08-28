@@ -1,0 +1,50 @@
+<div class="sidebar" role="navigation">
+  <div class="sidebar-nav">
+    <ul class="nav" id="side-menu">
+      <%= content_tag :li, class: "#{ controller_name == 'dashboard' ? 'active' : '' }" do %>
+        <%= link_to admin_path do %>
+          <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+          <span class="option">
+            Dashboard
+          </span>
+        <% end %>
+      <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'ips' ? 'active' : '' }" do %>
+        <%= link_to admin_ips_path do %>
+          <i class="fa fa-files-o fa-fw"></i>
+          <span class="option">
+            Ips
+          </span>
+        <% end %>
+      <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'users' ? 'active' : '' }" do %>
+        <%= link_to admin_users_path do %>
+          <i class="fa fa-user fa-fw"></i>
+          <span class="option">
+            Users
+          </span>
+        <% end %>
+      <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'articles' ? 'active' : '' }" do %>
+        <%= link_to admin_articles_path do %>
+          <i class="fa fa-files-o fa-fw"></i>
+          <span class="option">
+            Articles
+          </span>
+        <% end %>
+      <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'images' ? 'active' : '' }" do %>
+        <%= link_to admin_images_path do %>
+          <i class="fa fa-files-o fa-fw"></i>
+          <span class="option">
+            Images
+          </span>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <!-- /.sidebar-collapse -->
+
+  <%= render 'admin/layouts/toggle_expand' %>
+
+</div>
