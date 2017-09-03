@@ -1,16 +1,16 @@
 <div class="main-container">
   <div class="row">
     <div class="main col-md-8">
-      <div class="row large-article-row">
-        <%= render partial: 'large_article' %>
-      </div>
-      <div class="row medium-article-row">
-        <%= render partial: 'medium_article'%>
-      </div>
+      <% @articles.each do |article| %>
+        <div class="row large-article-row">
+          <%= render partial: 'large_article', locals: { article: article } %>
+        </div>
+      <% end %>
+
       <div class="row small-article-row">
-        <%= render partial: 'small_article' %>
-        <%= render partial: 'small_article' %>
-        <%= render partial: 'small_article' %>
+        <% @older_articles.each do |older_article| %>
+          <%= render partial: 'small_article', locals: { older_article: older_article } %>
+        <% end %>
       </div>
     </div>
     <div class="side col-md-4">

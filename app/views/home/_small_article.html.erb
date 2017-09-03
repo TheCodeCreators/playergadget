@@ -1,8 +1,8 @@
 <div class="col-md-4 small article-preview">
   <p class="preview-title">
-    Intel 8th generation desktop CPU boxes reveal key details
+    <%= older_article.title %>
     <span class="preview-date">
-      21 August 2017, 13:31
+      <%= older_article.created_at.strftime('%d %B, %Y') %>
     </span>
   </p>
   <div class="right-preview-area">
@@ -10,7 +10,7 @@
   </div>
   <div class="left-preview-area">
     <p class="preview-body">
-      Packaging confirms that a new 300 series chipset motherboard will be a requirement.
+      <%= older_article.intro %>
     </p>
   </div>
   <div class="preview-comments">
