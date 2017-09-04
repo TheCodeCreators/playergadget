@@ -49,6 +49,9 @@ gem 'friendly_id'
 # handles pagination
 gem 'will_paginate'
 
+# wysiwyg editor
+gem 'ckeditor'
+
 # handles file uploading
 gem 'carrierwave'
 
