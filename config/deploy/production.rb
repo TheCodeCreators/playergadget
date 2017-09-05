@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-server '192.168.1.4', user: 'rp', roles: %w[web app db]
+server '192.168.1.10', user: 'rp', roles: %w[web app db]
 set :rvm_type, :user
 
 # server-based syntax
