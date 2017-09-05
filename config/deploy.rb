@@ -8,7 +8,7 @@ set :repo_url, 'git@gitlab.thecodecreators.com:TheCodeCreators/playergadget.git'
 
 set :deploy_to, '/home/rp/playergadget'
 
-set :rvm_ruby_version, '2.4.1@playergadget'
+set :rvm_ruby_version, '2.4.1@pg'
 
 set :linked_files, fetch(:linked_files, []).push('.env')
 set :linked_dirs, fetch(:linked_dirs, []).push('log',
