@@ -29,29 +29,78 @@
 </div>
 <div class="main-container container">
   <div class="row">
-    <div class="main col-md-8">
-      <% @articles.each do |article| %>
-        <div class="row large-article-row">
-          <%= render partial: 'large_article', locals: { article: article } %>
-        </div>
-      <% end %>
+    <div class="main col-md-12">
+      <h2 class="text-center top-articles">TOP ARTICLES</h2>
 
-      <div class="row small-article-row">
-        <% @older_articles.each do |older_article| %>
-          <%= render partial: 'small_article', locals: { older_article: older_article } %>
+      <div class="row large-article-row">
+        <% @top_articles.each_with_index do |article, i| %>
+          <div class="col-md-3">
+            <%= render partial: 'large_article', locals: { article: article, i: i } %>
+          </div>
         <% end %>
       </div>
     </div>
-    <div class="side col-md-4">
-      <div class="row side-block side-1">
-        Advertisement
-      </div>
-      <div class="row side-block side-2">
-        Advertisement
-      </div>
-      <div class="row side-block side-3">
-        Advertisement
-      </div>
+  </div>
+</div>
+
+<div class="jumbotron my-jumbotron separator">
+  <div class="container">
+  </div>
+</div>
+
+<div class="main-container container">
+
+  <div class="row text-center">
+    <div class="col-md-12 small-article-row">
+      <% @older_articles.each_with_index do |older_article, i| %>
+        <div class="col-md-3">
+          <%= render partial: 'small_article', locals: { older_article: older_article, i: i  } %>
+        </div>
+      <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-offset-1 col-md-3 side-block">
+        Advertisement
+    </div>
+    <div class="col-md-3 side-block">
+        Advertisement
+    </div>
+    <div class="col-md-3 side-block">
+        Advertisement
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3></h3>
+      <iframe width="420" height="345" src="https://www.youtube.com/embed/I6EOrN0_20c">
+      </iframe>
+      <iframe width="420" height="345" src="https://www.youtube.com/embed/sXYYtp8D90E">
+      </iframe>
+    </div>
+
+    <div class="col-md-6">
+      <div class="my-tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+          <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">...</div>
+          <div role="tabpanel" class="tab-pane" id="profile">...</div>
+          <div role="tabpanel" class="tab-pane" id="messages">...</div>
+          <div role="tabpanel" class="tab-pane" id="settings">...</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>

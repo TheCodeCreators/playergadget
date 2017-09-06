@@ -1,21 +1,20 @@
-<div class="col-md-12 large article-preview panel panel-default">
+<div class="panel panel-default top-article-panel with-fixed-height article-<%= i + 1 %>">
   <div class="panel-body">
-    <p class="preview-title">
+    <p class="title">
       <%= article.title %>
-      <span class="preview-date">
-        <%= article.created_at.strftime('%d %B, %Y') %>
-      </span>
     </p>
-    <div class="right-preview-area">
-      <img src="/assets/intel-box.jpg">
+    <div class="row date-and-comments">
+      <div class="col-sm-9">
+        <p class="preview-date">
+          <%= article.created_at.strftime('%d %B, %Y') %>
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <p class="preview-comments pull-right">
+          5 <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>
+        </p>
+      </div>
     </div>
-    <div class="left-preview-area">
-      <p class="preview-body">
-        <%= article.body.html_safe %>
-      </p>
-    </div>
-    <div class="preview-comments">
-      5 <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>
-    </div>
+
   </div>
 </div>
