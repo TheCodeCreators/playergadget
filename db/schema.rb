@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828231326) do
+ActiveRecord::Schema.define(version: 20170907184756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20170828231326) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "highlights", force: :cascade do |t|
+    t.integer "position"
+    t.boolean "active", default: false, null: false
+    t.bigint "article_id"
+    t.bigint "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_highlights_on_article_id"
+    t.index ["image_id"], name: "index_highlights_on_image_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -108,4 +119,6 @@ ActiveRecord::Schema.define(version: 20170828231326) do
   end
 
   add_foreign_key "articles", "users"
+  add_foreign_key "highlights", "articles"
+  add_foreign_key "highlights", "images"
 end

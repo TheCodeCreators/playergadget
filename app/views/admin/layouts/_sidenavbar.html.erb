@@ -41,6 +41,14 @@
           </span>
         <% end %>
       <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'highlights' ? 'active' : '' }" do %>
+        <%= link_to admin_highlights_path do %>
+          <i class="fa fa-files-o fa-fw"></i>
+          <span class="option">
+            Highlights
+          </span>
+        <% end %>
+      <% end %>
     </ul>
   </div>
   <!-- /.sidebar-collapse -->

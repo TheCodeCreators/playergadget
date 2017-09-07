@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :articles
     resources :images
     resources :ips
+    resources :highlights
   end
 end
