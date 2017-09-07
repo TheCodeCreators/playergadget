@@ -4,65 +4,144 @@
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+.full-background {
+  position: fixed;
+  z-index: -100;
+  height: 100vh;
+  width: 100vw;
+  background: url("/images/black_with_patterns.jpg");
+  background-size: cover;
+}
 .main-container {
   margin: auto;
-  margin-top: 120px;
-  max-width: 1080px;
   padding-top: 15px;
-  background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.2));
 }
 .row {
   margin: 0;
   margin-bottom: 15px;
 }
-.main {
+.my-jumbotron {
+  margin-left: -15px;
+  margin-right: -15px;
+  border-radius: 0px !important;
+  height: 440px;
 }
-.side {
-  .side-block {
-    background: white;
-    &.side-1 {
-      height: 200px;
-    }
-    &.side-2 {
-      height: 300px;
-    }
-    &.side-3 {
-      height: 200px;
-    }
-  }
-}
-.article-preview {
-  border-radius: 2px;
-  background: white;
-  box-shadow: 1px 0px 5px black;
-  &.medium {
-    height: 300px;
-  }
-  &.small {
-    min-height: 200px;
-  }
-  &.large {
-    height: 400px;
-  }
-  .preview-title {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 17px;
-  }
-  .preview-date {
-    font-size: 10px;
-    font-weight: 200;
-  }
-  .preview-body {
-    font-size: 12px;
-  }
-  .right-preview-area {
 
-  }
-  .preview-comments {
-    color: #03B9FF;
-    font-size: 12px;
-    float: right;
-  }
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  display: block;
+  max-width: 100%;
+  height: 500px;
+  width: 100%;
+}
+
+.carousel {
+  width: 108%;
+  left: -60px;
+}
+
+.separator {
+  background: url("/images/bg_pattern.png") repeat left top;
+}
+
+.top-articles {
+  color: #fff;
+  margin-top: 110px;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 231px;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 40px;
+}
+
+.with-fixed-height {
+  color: #ccc;
+  height: 370px;
+  width: 260px;
+  border-radius: 0px !important;
+  border: 0px;
+}
+
+.article-1 {
+  background-image: url("/images/eso.jpg");
+  background-size: cover;
+}
+
+.article-2 {
+  background-image: url("/images/ark.jpg");
+  background-size: cover;
+}
+
+.article-3 {
+  background-image: url("/images/path_of_exile_game_logo_fire_97121_640x1136.jpg");
+  background-size: cover;
+}
+
+.article-4 {
+  background-image: url("/images/doom.jpg");
+  background-size: cover;
+}
+
+.preview-date {
+  margin-left: -15px;
+}
+
+.preview-comments {
+  margin-right: -15px;
+}
+
+.small-article-preview {
+  width: 230px;
+  height: 110px;
+  border: 0px;
+  border-top: 10px solid #2BBCF1;
+  border-radius: 0px;
+  opacity: 0.7;
+  color: #fff;
+}
+
+.small-article-1 {
+  background-image: url("/images/ark2_mic.jpg");
+  background-size: cover;
+}
+
+.small-article-2 {
+  background-image: url("/images/baubau_eso.jpg");
+  background-size: cover;
+}
+
+.small-article-3 {
+  background-image: url("/images/ark_mic.jpg");
+  background-size: cover;
+}
+
+.small-article-4 {
+  background-image: url("/images/eso_mic.jpg");
+  background-size: cover;
+}
+
+.small-preview-title {
+  height: 40px;
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.side-block {
+  background: white;
+  height: 200px;
+  margin-right: 10px;
+}
+
+.my-tabpanel {
+  margin-top: 20px;
+  height: 697px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  border: 1px solid #f0f0f0 !important;
 }

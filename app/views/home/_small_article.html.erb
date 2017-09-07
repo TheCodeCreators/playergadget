@@ -1,19 +1,5 @@
-<div class="col-md-4 small article-preview">
-  <p class="preview-title">
+<div class="panel panel-default small-article-preview small-article-<%= i + 1 %>">
+  <p class="small-preview-title">
     <%= older_article.title %>
-    <span class="preview-date">
-      <%= older_article.created_at.strftime('%d %B, %Y') %>
-    </span>
   </p>
-  <div class="right-preview-area">
-    <img src="/images/intel-box.jpg">
-  </div>
-  <div class="left-preview-area">
-    <p class="preview-body">
-      <%= older_article.intro %>
-    </p>
-  </div>
-  <div class="preview-comments">
-    5 <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>
-  </div>
 </div>

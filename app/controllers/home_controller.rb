@@ -3,7 +3,7 @@
 class HomeController < ApplicationController
   # home
   def index
-    @articles = Article.recent.limit(2)
-    @older_articles = Article.older.limit(3)
+    @top_articles = Article.all.first(4)
+    @older_articles = Article.all.last(4)
   end
 end
