@@ -34,9 +34,11 @@ body {
   width: 100%;
 }
 
-.carousel {
-  width: 108%;
-  left: -60px;
+.container-fluid .jumbotron {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 90px;
+  padding-top: 0px;
 }
 
 .separator {
@@ -45,7 +47,7 @@ body {
 
 .top-articles {
   color: #fff;
-  margin-top: 110px;
+  margin-top: 70px;
   margin-bottom: 50px;
 }
 

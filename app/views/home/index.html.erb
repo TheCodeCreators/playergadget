@@ -3,10 +3,9 @@
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <%  (1..11).step(1) do |i| %>
+      <%  (1..10).step(1) do |i| %>
         <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
       <% end %>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
     </ol>
 
     <!-- Wrapper for slides -->
