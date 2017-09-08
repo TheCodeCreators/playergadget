@@ -26,10 +26,9 @@
         </div>
         <div class="pull-left">
           <% if devise_mapping.rememberable? -%>
-            <div class="checkbox-div">
-              <%= f.check_box :remember_me, type:"checkbox" %>
-              <%= f.label :remember_me %>
-            </div>
+            <label class="checkbox-div">
+              <%= f.check_box :remember_me, type:"checkbox" %> Remember me
+            </label>
           <% end -%>
         </div>
 
