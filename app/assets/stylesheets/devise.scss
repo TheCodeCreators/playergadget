@@ -1,0 +1,19 @@
+.main-container.devise-area {
+  margin-top: 100px;
+  .session-fields {
+    background: white;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    padding: 15px;
+  }
+  #error_explanation {
+    h2 {
+      font-size: 14px;
+      text-align: left;
+    }
+    ul {
+      text-align: left;
+    }
+  }
+}

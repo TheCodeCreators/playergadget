@@ -16,4 +16,8 @@ module ApplicationHelper
   def display_ads?
     ENV['RAILS_ENV'] == 'production'
   end
+
+  def can_show_session_links
+    !current_user && controller_name != 'sessions' && controller_name != 'registrations'
+  end
 end

@@ -42,23 +42,27 @@
               </li>
             </ul>
         <% else %>
-          <li>
-            <span class="navbar-text blue-link" data-toggle="modal" data-target="#loginModal">
-              SIGN IN
-            </span>
-          </li>
-          <li>
-            <span class="navbar-text blue-link" data-toggle="modal" data-target="#signUpModal">
-              SIGN UP
-            </span>
-          </li>
+          <% if can_show_session_links %>
+            <li>
+              <span class="navbar-text blue-link" data-toggle="modal" data-target="#loginModal">
+                SIGN IN
+              </span>
+            </li>
+            <li>
+              <span class="navbar-text blue-link" data-toggle="modal" data-target="#signUpModal">
+                SIGN UP
+              </span>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- Login Modal -->
-<%= render 'layouts/login_modal' %>
-<!-- SignUP Modal -->
-<%= render 'layouts/sign_up_modal' %>
+<% if can_show_session_links %>
+  <!-- Login Modal -->
+  <%= render 'layouts/login_modal' %>
+  <!-- SignUP Modal -->
+  <%= render 'layouts/sign_up_modal' %>
+<% end %>
