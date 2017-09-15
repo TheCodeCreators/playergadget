@@ -1,4 +1,4 @@
-<div class="jumbotron my-jumbotron">
+<div class="container-fluid">
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -27,57 +27,72 @@
     </div>
   </div>
 </div>
-<div class="main-container container">
-  <div class="row">
-    <div class="main col-md-12">
-      <h2 class="text-center top-articles">TOP ARTICLES</h2>
 
-      <div class="row large-article-row">
-        <% @top_articles.each_with_index do |article, i| %>
-          <div class="col-md-3">
-            <%= render partial: 'large_article', locals: { article: article, i: i } %>
-          </div>
-        <% end %>
+<div class="container-fluid with-less-margin-top">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="large-advertisement">
+        Advertisement
       </div>
     </div>
   </div>
 </div>
 
 <div class="jumbotron my-jumbotron separator">
-  <div class="container">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-2 tag-column">
+        <button type="button" class="btn tag-button">All</button>
+      </div>
+      <div class="col-sm-2 tag-column">
+        <button type="button" class="btn tag-button">Elder Scrolls Online</button>
+      </div>
+      <div class="col-sm-2 tag-column">
+        <button type="button" class="btn tag-button">ARK: Survival Evolved</button>
+      </div>
+      <div class="col-sm-2 tag-column">
+        <button type="button" class="btn tag-button">Star Citizen</button>
+      </div>
+      <div class="col-sm-2 tag-column">
+        <button type="button" class="btn tag-button">Nvidia</button>
+      </div>
+      <div class="col-sm-2 tag-column">
+        <button type="button" class="btn tag-button">AMD</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="main-container container">
 
-  <div class="row text-center">
-    <div class="col-md-12 small-article-row">
-      <% @older_articles.each_with_index do |older_article, i| %>
-        <div class="col-md-3">
-          <%= render partial: 'small_article', locals: { older_article: older_article, i: i  } %>
-        </div>
+  <div class="row">
+
+    <div class="col-md-8">
+      <% @articles.each do |article| %>
+        <%= render partial: 'article', locals: { article: article } %>
       <% end %>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-offset-1 col-md-3 side-block">
-        Advertisement
+    <div class="col-md-4">
+      <div class="side-block">
+          Advertisement
+      </div>
+      <div class="side-block">
+          Advertisement
+      </div>
+      <div class="side-block">
+          Advertisement
+      </div>
     </div>
-    <div class="col-md-3 side-block">
-        Advertisement
-    </div>
-    <div class="col-md-3 side-block">
-        Advertisement
-    </div>
+
   </div>
 
   <div class="row">
     <div class="col-md-6">
       <h3></h3>
-      <iframe width="420" height="345" src="https://www.youtube.com/embed/I6EOrN0_20c">
+      <iframe width="100%" height="345" src="https://www.youtube.com/embed/I6EOrN0_20c">
       </iframe>
-      <iframe width="420" height="345" src="https://www.youtube.com/embed/sXYYtp8D90E">
+      <iframe width="100%" height="345" src="https://www.youtube.com/embed/sXYYtp8D90E">
       </iframe>
     </div>
 
