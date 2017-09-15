@@ -41,12 +41,14 @@
               </li>
             </ul>
         <% else %>
-          <% if can_show_session_links %>
+          <% if can_show_session_links('login') %>
             <li>
               <span class="navbar-text blue-link" data-toggle="modal" data-target="#loginModal">
                 SIGN IN
               </span>
             </li>
+          <% end %>
+          <% if can_show_session_links('signup') %>
             <li>
               <span class="navbar-text blue-link" data-toggle="modal" data-target="#signUpModal">
                 SIGN UP
@@ -59,9 +61,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<% if can_show_session_links %>
+<% if can_show_session_links('login') %>
   <!-- Login Modal -->
   <%= render 'layouts/login_modal' %>
+<% end %>
+<% if can_show_session_links('signup') %>
   <!-- SignUP Modal -->
   <%= render 'layouts/sign_up_modal' %>
 <% end %>
