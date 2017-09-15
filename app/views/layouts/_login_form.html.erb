@@ -7,6 +7,12 @@
         <i class="fa fa-facebook-official fa-lg fa-fw"></i> Log In With Facebook
       </div>
       <% end %>
+      <br>
+      <%= link_to omniauth_authorize_path(resource_name, 'steam') do %>
+      <div class="btn-lg btn-block btn-social btn-steam btn-custom2">
+        <i class="fa fa-steam fa-lg fa-fw"></i> Log In With Steam
+      </div>
+      <% end %>
     </div>
     <div class="clearfix hr-or-divider">
       <hr class="pull-left">

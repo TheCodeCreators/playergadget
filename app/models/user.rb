@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook, :steam]
 
   def name
     "#{first_name} #{last_name}"
@@ -24,5 +24,33 @@ class User < ApplicationRecord
 
   def admin?
     roles.include?(2)
+  end
+
+  # Called by OmniauthCallbacksController
+  # Finds or updates or creates a user as necessary.
+  def self.find_for_oauth(auth)
+    # check if user had previously logged on with gitlab
+    user = User.find_by(provider: auth.provider, email: auth.info.email)
+    return user if user
+    registered_user = User.find_by(email: auth.info.email)
+    if registered_user
+      registered_user.registered_user_found_logic(auth)
+    else
+      User.new.create_new_user_logic(auth)
+    end
+  end
+
+  def create_new_user_logic(auth)
+    update(name:         auth.extra.raw_info.name,
+           provider:     auth.provider,
+           email:        auth.info.email,
+           password:     Devise.friendly_token[0, 20])
+    self
+  end
+
+  def registered_user_found_logic(auth)
+    assign_attributes(provider:  auth.provider)
+    save if changed?
+    self
   end
 end
