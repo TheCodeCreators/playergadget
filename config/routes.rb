@@ -16,4 +16,7 @@ Rails.application.routes.draw do
     resources :ips
     resources :highlights
   end
+
+  get '/:id', to: 'members#show'
+  get '/:id/profile', to: 'members#profile'
 end

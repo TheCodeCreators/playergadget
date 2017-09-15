@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :username, use: :slugged
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,
@@ -28,10 +30,8 @@ class User < ApplicationRecord
 
   # Called by OmniauthCallbacksController
   # Finds or updates or creates a user as necessary.
-  def self.find_for_oauth(auth)
+  def self.find_for_facebook_oauth(auth)
     # check if user had previously logged on with gitlab
-    user = User.find_by(provider: auth.provider, email: auth.info.email)
-    return user if user
     registered_user = User.find_by(email: auth.info.email)
     if registered_user
       registered_user.registered_user_found_logic(auth)
@@ -52,5 +52,14 @@ class User < ApplicationRecord
     assign_attributes(provider: auth.provider)
     save if changed?
     self
+  end
+
+  def self.find_for_steam_oauth(auth, current_user)
+    if current_user
+      current_user.update(steam_uid: auth.uid)
+      current_user
+    else
+      User.find_by(steam_uid: auth.uid)
+    end
   end
 end
