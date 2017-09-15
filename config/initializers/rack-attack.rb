@@ -74,4 +74,16 @@ class Rack::Attack
   #    {},   # headers
   #    ['']] # body
   # end
+
+  safelist('allow from localhost') do |req|
+    '127.0.0.1' == req.ip || '::1' == req.ip
+  end
+
+  # blocklist('bad bad users that should not be') do |req|
+  #   # Requests are allowed if the return value is truthy
+  #   # Keep in mind this is a static list that loads when rails starts
+  #   # Good for reading from a file, not from database!
+  #   ips = Ip.pluck(&:addr)
+  #   ips.exclude?(req.ip)
+  # end
 end
