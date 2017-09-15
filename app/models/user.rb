@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :steam]
+         :omniauthable, omniauth_providers: %i[facebook steam]
 
   def name
     "#{first_name} #{last_name}"
@@ -41,15 +41,15 @@ class User < ApplicationRecord
   end
 
   def create_new_user_logic(auth)
-    update(name:         auth.extra.raw_info.name,
-           provider:     auth.provider,
-           email:        auth.info.email,
-           password:     Devise.friendly_token[0, 20])
+    update(name:     auth.extra.raw_info.name,
+           provider: auth.provider,
+           email:    auth.info.email,
+           password: Devise.friendly_token[0, 20])
     self
   end
 
   def registered_user_found_logic(auth)
-    assign_attributes(provider:  auth.provider)
+    assign_attributes(provider: auth.provider)
     save if changed?
     self
   end
