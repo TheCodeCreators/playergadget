@@ -1,34 +1,17 @@
-<div class="container-fluid">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <%  (1..10).step(1) do |i| %>
-        <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
-      <% end %>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="/images/0001.jpg" alt="...">
-        <div class="carousel-caption">
-        </div>
+<div class="container with-padding-top">
+  <div class="row top-articles">
+    <div class="col-md-8">
+      <div class="top-article">
       </div>
-
-      <%  (2..11).step(1) do |i| %>
-        <div class="item">
-          <img src="/images/000<%= i %>.jpg" alt="...">
-          <div class="carousel-caption">
-          </div>
-        </div>
-      <% end %>
-
+    </div>
+    <div class="col-md-4">
+      <div class="top-article">
+      </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid with-less-margin-top">
+<div class="container with-less-margin-top">
   <div class="row">
     <div class="col-md-12">
       <div class="large-advertisement">
@@ -39,27 +22,15 @@
 </div>
 
 <div class="jumbotron my-jumbotron separator">
-  <div class="container text-center">
+  <div class="container">
     <div class="row">
-      <div class="col-sm-2 tag-column">
-        <button type="button" class="btn tag-button">All</button>
-      </div>
-      <div class="col-sm-2 tag-column">
-        <button type="button" class="btn tag-button">Elder Scrolls Online</button>
-      </div>
-      <div class="col-sm-2 tag-column">
-        <button type="button" class="btn tag-button">ARK: Survival Evolved</button>
-      </div>
-      <div class="col-sm-2 tag-column">
-        <button type="button" class="btn tag-button">Star Citizen</button>
-      </div>
-      <div class="col-sm-2 tag-column">
-        <button type="button" class="btn tag-button">Nvidia</button>
-      </div>
-      <div class="col-sm-2 tag-column">
-        <button type="button" class="btn tag-button">AMD</button>
-      </div>
+      <% @mini_articles.each_with_index do |article, i| %>
+        <div class="col-md-3">
+          <%= render partial: 'small_article', locals: { article: article, i: i } %>
+        </div>
+      <% end %>
     </div>
+
   </div>
 </div>
 
@@ -88,32 +59,11 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <h3></h3>
-      <iframe width="100%" height="345" src="https://www.youtube.com/embed/I6EOrN0_20c">
-      </iframe>
-      <iframe width="100%" height="345" src="https://www.youtube.com/embed/sXYYtp8D90E">
-      </iframe>
-    </div>
-
-    <div class="col-md-6">
-      <div class="my-tabpanel">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Latest articles</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Most viewed</a></li>
-          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Most liked</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home"></div>
-          <div role="tabpanel" class="tab-pane" id="profile"></div>
-          <div role="tabpanel" class="tab-pane" id="messages"></div>
-        </div>
+    <div class="col-md-12">
+      <div class="large-advertisement">
+        Advertisement
       </div>
     </div>
-
   </div>
 
 </div>
