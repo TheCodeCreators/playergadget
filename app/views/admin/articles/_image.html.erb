@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+
+  <h4>
+    Current image
+  </h4>
+  <div class="form-group dotted-border-container">
+    <%= image_tag(@article.image, size: "320x180", id:"img_prev", src:"#") %>
+  </div>
+
+  </div>
+  <div class="col-md-6">
+    <h4>
+      Upload an image
+    </h4>
+    <div class="form-group">
+
+        <div class="form-group">
+          <%= f.file_field :image, class:"btn btn-small btn-primary btn-inverse article-image-uploader", type:'file' %>
+        </div>
+    </div>
+  </div>
+</div>

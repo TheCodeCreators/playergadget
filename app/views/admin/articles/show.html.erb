@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <h3 class="users-page-title">
-        Articles
+        <%= @article.title %>
       </h3>
     </div>
     <div class="col-md-6">
@@ -17,15 +17,26 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <%= @article.title %> by <%= @article.user.name %> at <%= @article.created_at.strftime("%b %d, %Y %H:%M") %><br>
-          <%= @article.published_at.present? ? @article.created_at.strftime("%b %d, %Y %H:%M") : "Draft" %><br>
+          <strong>Author:</strong> <%= @article.user.name %><br>
+          <strong>Created At:</strong> <%= @article.created_at.strftime("%b %d, %Y %H:%M") %><br>
+          <strong>Published:</strong> <%= @article.published_at.present? ? @article.created_at.strftime("%b %d, %Y %H:%M") : "Draft" %><br>
+          <strong>Image:</strong> # add image link target: _blank<br>
+          <strong>Tags:</strong> <%= @article.tag_list %>
         </div>
         <div class="panel-body">
+          <strong>Teaser:</strong>
+          <div class="panel panel-default">
+            <div class="panel-body article-intro">
+              <%= raw @article.teaser %><br>
+            </div>
+          </div>
+          <strong>Intro:</strong>
           <div class="panel panel-default">
             <div class="panel-body article-intro">
               <%= raw @article.intro %><br>
             </div>
           </div>
+          <strong>body:</strong>
           <div class="panel panel-default">
             <div class="panel-body article-body">
               <%= raw @article.body %><br>
