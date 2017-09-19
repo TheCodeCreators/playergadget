@@ -42,7 +42,13 @@ module Admin
     private
 
     def article_params
-      params.require(:article).permit(:published_at, :status, :title, :body, :intro, :tag_list)
+      params.require(:article).permit(:published_at,
+                                      :status,
+                                      :title,
+                                      :body,
+                                      :intro,
+                                      :tag_list,
+                                      :image)
     end
   end
 end

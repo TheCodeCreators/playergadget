@@ -17,7 +17,9 @@ module ApplicationHelper
     ENV['RAILS_ENV'] == 'production'
   end
 
-  def can_show_session_links
-    !current_user && controller_name != 'sessions' && controller_name != 'registrations'
+  def can_show_session_links(page)
+    return page == 'signup' if controller_name == 'sessions'
+    return page == 'login' if controller_name == 'registrations'
+    return true unless current_user
   end
 end

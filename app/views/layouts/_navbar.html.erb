@@ -22,7 +22,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               <div class="user-avatar-navbar">
                 <span class="user-name-navbar blue-link">
-                  Welcome, <%= current_user.name %>
+                  Welcome, <%= current_user.username %>
                 </span>
                 <span class="caret"></span>
               </div>
@@ -41,12 +41,14 @@
               </li>
             </ul>
         <% else %>
-          <% if can_show_session_links %>
+          <% if can_show_session_links('login') %>
             <li>
               <span class="navbar-text blue-link" data-toggle="modal" data-target="#loginModal">
                 SIGN IN
               </span>
             </li>
+          <% end %>
+          <% if can_show_session_links('signup') %>
             <li>
               <span class="navbar-text blue-link" data-toggle="modal" data-target="#signUpModal">
                 SIGN UP
@@ -59,9 +61,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<% if can_show_session_links %>
+<% if can_show_session_links('login') %>
   <!-- Login Modal -->
   <%= render 'layouts/login_modal' %>
+<% end %>
+<% if can_show_session_links('signup') %>
   <!-- SignUP Modal -->
   <%= render 'layouts/sign_up_modal' %>
 <% end %>
