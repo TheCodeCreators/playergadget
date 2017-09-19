@@ -35,7 +35,37 @@ body {
 //  max-width: 715px;
   margin-bottom: 10px;
   background: #f6f6f6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  cursor: pointer;
+  img {
+    z-index: -1;
+  }
 }
+
+.top-article-title-and-teaser {
+  color: #fff;
+  height: 120px;
+  width: 100%;
+  background: #000;
+  background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.8), rgba(0,0,0,0.9), rgba(0,0,0,0.9));
+  padding-left: 10px;
+  .top-article-teaser {
+    display: none;
+  }
+  @media(min-width:768px) {
+    .top-article-teaser {
+      display: none;
+    }
+    &:hover {
+      .top-article-teaser {
+        display: block;
+      }
+    }
+  }
+}
+
 .blue-link {
   cursor: pointer;
 }
@@ -66,25 +96,34 @@ body {
   margin-top: 3px;
 }
 
+.all-articles-row {
+  a {
+    cursor: pointer;
+    color: #f5f5f5;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #2BBCF1;
+  };
+}
+
 .articles-panel {
   background: url("/images/bg_pattern.png") repeat left top;
   border-color: #000;
   color: #f5f5f5;
+  line-height: 2.3rem;
 }
 
 .article-title {
   font-size: 18px;
-  line-height: 1.3rem;
   font-weight: 600;
 }
 
 .article-image {
-  img {
-    max-width: 165px;
-    margin-top: 20px;
-    margin-left: -10px;
-    max-height: 90px;
-  }
+  margin-top: 20px;
+  margin-left: -10px;
+  min-height: 101px;
+  height: auto;
 }
 
 .with-fixed-height {
@@ -93,26 +132,6 @@ body {
   width: 260px;
   border-radius: 0px !important;
   border: 0px;
-}
-
-.article-1 {
-  background-image: url("/images/eso.jpg");
-  background-size: cover;
-}
-
-.article-2 {
-  background-image: url("/images/ark.jpg");
-  background-size: cover;
-}
-
-.article-3 {
-  background-image: url("/images/path_of_exile_game_logo_fire_97121_640x1136.jpg");
-  background-size: cover;
-}
-
-.article-4 {
-  background-image: url("/images/doom.jpg");
-  background-size: cover;
 }
 
 .preview-date {
@@ -125,40 +144,25 @@ body {
 }
 
 .small-article-preview {
-  width: 230px;
-  height: 110px;
+  width: auto;
+  height: 150px;
   border: 0px;
   border-top: 10px solid #2BBCF1;
   border-radius: 0px;
   cursor: pointer;
-}
-.small-article-1 {
-  background-image: url("/images/ark2_mic.jpg");
-  background-size: cover;
-}
-
-.small-article-2 {
-  background-image: url("/images/baubau_eso.jpg");
-  background-size: cover;
-}
-
-.small-article-3 {
-  background-image: url("/images/ark_mic.jpg");
-  background-size: cover;
-}
-
-.small-article-4 {
-  background-image: url("/images/eso_mic.jpg");
-  background-size: cover;
+  margin-bottom: 10px;
+  display: table-cell;
+  vertical-align: bottom;
 }
 
 .small-preview-title {
-  width: 230px;
+  width: auto;
   height: 40px;
   font-size: 16px;
   font-weight: 400;
   color: #fff;
-  cursor: pointer;
+  line-height: 1em;
+  background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.8), rgba(0,0,0,0.9), rgba(0,0,0,0.9));
 }
 
 .side-block {

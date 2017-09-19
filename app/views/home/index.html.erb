@@ -1,12 +1,10 @@
 <div class="container with-padding-top">
   <div class="row top-articles">
     <div class="col-md-8">
-      <div class="top-article">
-      </div>
+      <%= render partial: 'top_left_article' %>
     </div>
     <div class="col-md-4">
-      <div class="top-article">
-      </div>
+      <%= render partial: 'top_right_article' %>
     </div>
   </div>
 </div>
@@ -24,9 +22,9 @@
 <div class="jumbotron my-jumbotron separator">
   <div class="container">
     <div class="row">
-      <% @mini_articles.each_with_index do |article, i| %>
+      <% @mini_articles.each do |article| %>
         <div class="col-md-3">
-          <%= render partial: 'small_article', locals: { article: article, i: i } %>
+          <%= render partial: 'small_article', locals: { article: article } %>
         </div>
       <% end %>
     </div>
@@ -38,7 +36,7 @@
 
   <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-8 all-articles-row">
       <% @articles.each do |article| %>
         <%= render partial: 'article', locals: { article: article } %>
       <% end %>

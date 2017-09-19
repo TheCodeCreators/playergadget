@@ -1,27 +1,30 @@
 <div class="panel panel-default articles-panel">
   <div class="panel-body">
-    <div class="row">
-      <div class="col-xs-3">
-        <div class="article-image" style="background: url(<%#=  %>); background-size: cover;">
-          <img src='/images/ark_mic.jpg' class="img-responsive"/>
+    <%= link_to article_path(article) do %>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="article-image" style="background: url(<%= article.image %>); background-size: cover;">
+          </div>
+        </div>
+        <div class="col-md-9">
+          <h3 class="article-title">
+            <%= article.title %>
+          </h3>
+
+          <div class="intro">
+            <%= article.intro %>
+          </div>
+
+          <div class="preview-date">
+            <%= article.created_at.strftime('%d %B, %Y') %>
+            <span class="preview-comments pull-right">
+              <% if article.comments_count.positive? %>
+                <%= article.comments_count %> <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>
+              <% end %>
+            </span>
+          </div>
         </div>
       </div>
-      <div class="col-xs-9">
-        <h3 class="article-title">
-          <%= article.title %>
-        </h3>
-
-        <div class="intro">
-          <%= article.intro %>
-        </div>
-
-        <div class="preview-date">
-          <%= article.created_at.strftime('%d %B, %Y') %>
-          <span class="preview-comments pull-right">
-            5 <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>
-          </span>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
