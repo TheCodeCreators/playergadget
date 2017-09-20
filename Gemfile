@@ -55,6 +55,7 @@ gem 'ckeditor'
 
 # handles file uploading
 gem 'carrierwave'
+gem 'mini_magick'
 
 # handles tags
 gem 'acts-as-taggable-on'
@@ -68,7 +69,7 @@ gem 'rollbar'
 gem 'rack-attack'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-byebug'
   gem 'factory_girl_rails'
