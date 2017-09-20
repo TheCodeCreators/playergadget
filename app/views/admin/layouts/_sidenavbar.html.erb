@@ -9,22 +9,6 @@
           </span>
         <% end %>
       <% end %>
-      <%= content_tag :li, class: "#{ controller_name == 'ips' ? 'active' : '' }" do %>
-        <%= link_to admin_ips_path do %>
-          <i class="fa fa-files-o fa-fw"></i>
-          <span class="option">
-            Ips
-          </span>
-        <% end %>
-      <% end %>
-      <%= content_tag :li, class: "#{ controller_name == 'users' ? 'active' : '' }" do %>
-        <%= link_to admin_users_path do %>
-          <i class="fa fa-user fa-fw"></i>
-          <span class="option">
-            Users
-          </span>
-        <% end %>
-      <% end %>
       <%= content_tag :li, class: "#{ controller_name == 'articles' ? 'active' : '' }" do %>
         <%= link_to admin_articles_path do %>
           <i class="fa fa-files-o fa-fw"></i>
@@ -46,6 +30,22 @@
           <i class="fa fa-files-o fa-fw"></i>
           <span class="option">
             Highlights
+          </span>
+        <% end %>
+      <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'ips' ? 'active' : '' }" do %>
+        <%= link_to admin_ips_path do %>
+          <i class="fa fa-files-o fa-fw"></i>
+          <span class="option">
+            Ips
+          </span>
+        <% end %>
+      <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'users' ? 'active' : '' }" do %>
+        <%= link_to admin_users_path do %>
+          <i class="fa fa-user fa-fw"></i>
+          <span class="option">
+            Users
           </span>
         <% end %>
       <% end %>
