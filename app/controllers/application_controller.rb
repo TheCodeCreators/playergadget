@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
+  before_action :check_if_white_listed
 
   private
 
@@ -40,5 +41,11 @@ class ApplicationController < ActionController::Base
     added_attrs = %i[username email password password_confirmation]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit(:sign_in, keys: %i[email password remember_me])
+  end
+
+  def check_if_white_listed
+    unless Ip.all.include?(request.ip) || Ip.all.include?(request.env['HTTP_X_REAL_IP'])
+      render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+    end
   end
 end
