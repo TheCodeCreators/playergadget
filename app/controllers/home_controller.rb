@@ -3,7 +3,7 @@
 class HomeController < ApplicationController
   # home
   def index
-    @top_articles = Article.all.first(4)
     @articles = Article.all
+    @highlights = Highlight.includes(:article).references(:article).active
   end
 end

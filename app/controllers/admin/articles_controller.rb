@@ -48,7 +48,8 @@ module Admin
                                       :body,
                                       :intro,
                                       :tag_list,
-                                      :image)
+                                      :image,
+                                      :teaser)
     end
   end
 end

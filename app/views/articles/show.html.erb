@@ -1,0 +1,32 @@
+<div class="main-container container article">
+  <div class="row top-articles">
+    <div class="col-md-12">
+      <%= render partial: 'home/top_articles', locals: { article: @article } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="large-advertisement">
+        Advertisement
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <article class="article-show">
+        <%= @article.body.html_safe %>
+      </article>
+    </div>
+    <div class="col-md-4">
+      <div class="side-block">
+          Advertisement
+      </div>
+      <div class="side-block">
+          Advertisement
+      </div>
+      <div class="side-block">
+          Advertisement
+      </div>
+    </div>
+  </div>
+</div>
