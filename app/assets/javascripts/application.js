@@ -14,6 +14,7 @@
 //= require ckeditor/init
 //= require bootstrap.min
 //= require rails-ujs
+//= require select2.min
 //= require turbolinks
 //= require dropzone
 //= require_tree .

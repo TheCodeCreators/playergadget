@@ -1,0 +1,36 @@
+<%= form_for [:admin, @highlight], html: {role: :form} do |f| %>
+  <% if @highlight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@highlight.errors.count, "error") %> prohibited
+        this ip from being saved:</h2>
+        <ul>
+        <% @highlight.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Rounded switch -->
+  <label>
+    Active:
+  </label>
+  <label class="switch">
+    <%= f.check_box :active %>
+    <span class="slider round"></span>
+  </label>
+
+  <div class="form-group">
+    <%= f.label :article_id %>
+    <%= f.select :article_id, generate_articles_list, { include_blank: 'Select an article' }, class: 'form-control articles-list' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.select :position, enum_to_collection('Highlight', 'positions'), { include_blank: 'Select a position' }, class: 'form-control positions-list' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Save Highlight", :class=>'btn btn-lg btn-block btn-primary' %>
+  </div>
+<% end %>
