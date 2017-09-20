@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <title>Playergadget</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta property="fb:app_id" content="<%= ENV['FB_APP_ID'] %>" />
+    <% if @article %>
+      <meta property="og:title" content="<%= @article.title %>" />
+      <meta property="og:url" content="<%= request.original_url %>" />
+      <meta property="og:image" content="<%= @article.image.to_s %>" />
+      <meta property="og:description" content="<%= @article.teaser %>" />
+      <meta property="og:site_name" content="PlayerGadget" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:type" content="website" />
+    <% end %>
   </head>
 
   <body>

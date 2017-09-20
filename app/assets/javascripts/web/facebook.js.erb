@@ -1,0 +1,21 @@
+function FBInit() {
+  FB.init({
+    appId      : <%= ENV['FB_APP_ID'] %>,
+    xfbml      : true,
+    version    : 'v2.10'
+  });
+};
+
+$(document).ready(function(){
+  $.getScript( "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10", FBInit);
+});
+
+$(document).on('turbolinks:load', function(event){
+  if (typeof FB !== "undefined" && FB !== null) {
+    FB.XFBML.parse();
+  }
+});
+
+$(document).on("turbolinks:before-cache", function() {
+    $('[data-turbolinks-no-cache]').remove();
+});
