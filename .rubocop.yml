@@ -22,7 +22,7 @@ Rails:
 Metrics/AbcSize:
   Max: 30
 Metrics/LineLength:
-  Max: 100
+  Max: 120
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
 Metrics/MethodLength:
