@@ -9,4 +9,8 @@ class Article < ApplicationRecord
 
   scope :recent, -> { where('created_at > ?', 1.week.ago.beginning_of_day) }
   scope :older, -> { where('created_at <= ?', 1.week.ago) }
+
+  def published?
+    self.published_at.nil? ? false : !(self.published_at > Time.zone.now)
+  end
 end
