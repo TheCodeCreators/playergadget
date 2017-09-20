@@ -1,5 +1,5 @@
 <%= link_to article_path(article) do %>
-  <div class="top-article" style="background: url(<%= article.image %>) no-repeat center center; background-size: cover;">
+  <div class="top-article reload-image" style="background: url(<%= article.image.thumb %>) no-repeat center center; background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
     <div class="top-article-title-and-teaser">
       <h3 class="top-article-title">
         <%= article.title %>

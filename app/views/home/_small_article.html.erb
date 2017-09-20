@@ -1,5 +1,5 @@
 <%= link_to article_path(article) do %>
-  <div class="panel panel-default small-article-preview" style="background: url(<%= article.image %>) no-repeat center center; background-size: cover;">
+  <div class="panel panel-default small-article-preview reload-image" style="background: url(<%= article.image.thumb %>) no-repeat center center; background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
     <div class="small-preview-title">
       <h4><%= article.title %></h4>
     </div>
