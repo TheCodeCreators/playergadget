@@ -42,8 +42,4 @@ module ApplicationHelper
     end
     collection
   end
-
-  def display_ads?
-    ENV['RAILS_ENV'] == "production"
-  end
 end
