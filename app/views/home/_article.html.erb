@@ -3,7 +3,7 @@
     <%= link_to article_path(article) do %>
       <div class="row">
         <div class="col-md-3">
-          <div class="article-image reload-image" style="background: url(<%= article.image %>); background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
+          <div class="article-image reload-image" style="background: url(<%= article.image.thumb %>); background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
           </div>
         </div>
         <div class="col-md-9">
