@@ -11,6 +11,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook steam]
 
   validates :terms_of_service, acceptance: true
+  validates :email, presence: true
 
   def name
     "#{first_name} #{last_name}"

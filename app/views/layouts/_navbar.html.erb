@@ -36,6 +36,9 @@
                 </li>
               <% end %>
               <li>
+                <%= link_to "Account", "/users/account" %>
+              </li>
+              <li>
                 <%= link_to "Logout", main_app.destroy_user_session_path,
                  method: :delete, :class => 'navbar-link'  %>
               </li>
