@@ -7,6 +7,7 @@ document.addEventListener("turbolinks:load", function() {
     filename = $(this).data('image-name')
     // Finds the resolution and matches with an image size
     if ($(this).width() < 200) {
+      // Nothing to do here, this is the default size
     } else if ($(this).width() < 400) {
       bg_url = "url(" + path + "small_" + filename +")"
       $(this).css("background-image", bg_url)
