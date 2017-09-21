@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :highlights
   end
 
+  get '/terms-of-service', to: 'home#terms_of_service'
+  get '/privacy-policy', to: 'home#privacy_policy'
+  get '/about-us', to: 'home#about_us'
+
   get '/:id', to: 'members#show'
   get '/:id/profile', to: 'members#profile'
 end

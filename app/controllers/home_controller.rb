@@ -6,4 +6,13 @@ class HomeController < ApplicationController
     @articles = Article.all
     @highlights = Highlight.includes(:article).references(:article).active
   end
+
+  def terms_of_service
+  end
+
+  def privacy_policy
+  end
+
+  def about_us
+  end
 end
