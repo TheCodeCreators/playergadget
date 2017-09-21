@@ -1,3 +1,10 @@
+<%= content_for :keywords do %>
+  <meta name="keywords" content="<%= @article.title.split(' ').join(", ") %>">
+<% end %>
+<%= content_for :title  do %>
+  <title>PlayerGadget - <%= @article.title %></title>
+<% end %>
+
 <div class="main-container container article">
   <div class="row top-articles">
     <div class="col-md-12">

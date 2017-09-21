@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
   <head>
-    <title>Playergadget</title>
+    <% if content_for?(:title) %>
+      <%= yield(:title) %>
+    <% else %>
+      <title>PlayerGadget - from players to players</title>
+    <% end %>
+    <% if content_for?(:keywords) %>
+      <%= yield(:keywords) %>
+    <% else %>
+      <meta name="keywords" content="games, hardware, fun, reviews, tips">
+    <% end %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
