@@ -17,7 +17,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_steam_oauth(request.env['omniauth.auth'], current_user)
     if current_user
       set_flash_message(:notice, 'Steam account added to your account.') if is_navigational_format?
-      redirect_to "/#{current_user.slug}/profile"
+      redirect_to "/users/account"
       return
     end
     if @user

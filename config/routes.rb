@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get '/about-us', to: 'home#about_us'
 
   get '/:id', to: 'members#show'
-  get '/:id/profile', to: 'members#profile'
+  get '/users/account', to: 'members#account'
+  patch '/users/account', to: 'members#update', as: 'edit_member_account'
 end
