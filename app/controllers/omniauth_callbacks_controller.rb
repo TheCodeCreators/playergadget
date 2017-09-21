@@ -16,7 +16,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def steam
     @user = User.find_for_steam_oauth(request.env['omniauth.auth'], current_user)
     if current_user
-      set_flash_message(:notice, 'Steam account added to your account.') if is_navigational_format?
+      # set_flash_message(:notice, :success, kind: 'Steam') if is_navigational_format?
+      flash[:notice] = 'Steam account associated to your account.' if is_navigational_format?
       redirect_to '/users/account'
       return
     end
@@ -24,7 +25,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication # this will throw if @user is not activated
       set_flash_message(:notice, :success, kind: 'Steam') if is_navigational_format?
     else
-      flash[:notice] = "We couldn't match your Steam account with any PlayerGadget account"
+      flash[:alert] = "We couldn't match your Steam account with any PlayerGadget account"
       redirect_to new_user_session_path
     end
   end
