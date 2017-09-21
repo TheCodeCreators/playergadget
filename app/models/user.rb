@@ -10,6 +10,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook steam]
 
+  validates :terms_of_service, acceptance: true
+
   def name
     "#{first_name} #{last_name}"
   end
