@@ -5,6 +5,9 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+.min-height-page {
+  min-height: 100vh;
+}
 .full-background {
   padding-top: 50px;
   position: fixed;
