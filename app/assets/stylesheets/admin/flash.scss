@@ -19,31 +19,33 @@
     right: 2px;
    }
    &.alert-danger {
-     background-color: white;
-     border: 1px solid #777;
+     background-color: #080808;
+     border: 3px solid #337ab7;
+     color: #2BBCF1;
      .close {
-       color: #a94442;
+       color: #2BBCF1;
      }
      .text {
        border: 1px solid #b8a779;
        border-radius: 5px;
        padding: 10px;
        background-color: #f2dede;
-       color: #a94442;
+       color: #2BBCF1;
      }
    }
    &.alert-success {
-     background-color: white;
-     border: 1px solid #777;
+     background-color: #080808;
+     border: 3px solid #337ab7;
+     color: #2BBCF1;
      .close {
-       color: #3c763d;
+       color: #2BBCF1;
      }
      .text {
        border: 1px solid #b8a779;
        border-radius: 5px;
        padding: 10px;
        background-color: #dff0d8;
-       color: #3c763d;
+       color: #2BBCF1;
      }
    }
 }

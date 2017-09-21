@@ -13,8 +13,10 @@ class MembersController < ApplicationController
     @user = current_user
     @user.update_attributes(member_params)
     if @user.save
+      flash[:notice] = 'Account sucessfully updated.'
       redirect_to users_account_path
     else
+      flash.now[:alert] = 'An error occurred while trying to update your account.'
       render 'account'
     end
   end
