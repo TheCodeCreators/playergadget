@@ -22,6 +22,6 @@ class Article < ApplicationRecord
   # Keep in mind images uploaded to the Image model will not be deleted,
   # only the image associated with the article itself will (and all it's versions)
   def remove__all_image_versions
-    FileUtils.rm_r(Rails.root.join('public', "/uploads/article/image/#{self.id}"), force: true)
+    FileUtils.rm_r(Rails.root.join('public', "/uploads/article/image/#{id}"), force: true)
   end
 end
