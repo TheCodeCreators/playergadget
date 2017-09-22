@@ -30,7 +30,7 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  process convert: 'png'
+  # process convert: 'png'
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -80,5 +80,8 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
+  # end
+  # def filename
+  #   original_filename.split('.')[0..-2].join('.') + '.png'
   # end
 end
