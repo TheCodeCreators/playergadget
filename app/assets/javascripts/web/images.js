@@ -18,7 +18,9 @@ document.addEventListener("turbolinks:load", function() {
       bg_url = "url(" + path + "large_" + filename +")"
       $(this).css("background-image", bg_url)
     } else {
-      bg_url = "url(" + path + filename +")"
+      // We never serve the original image, because we cant ensure its browser compatible
+      // We serve this 1920x image instead
+      bg_url = "url(" + path + "xlarge_" + filename +")"
       $(this).css("background-image", bg_url)
     }
   });

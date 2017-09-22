@@ -14,7 +14,7 @@ document.addEventListener("turbolinks:load", function() {
       reader.readAsDataURL(input.files[0]);
     }
   });
-  $(function () {
-      $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+      dateFormat: 'dd-mm-yy'
   });
 });

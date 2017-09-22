@@ -36,7 +36,7 @@
                    <td><%= link_to article.title, admin_article_path(article) %></td>
                    <td class="article-intro"><%= raw article.intro %></td>
                    <td><%= article.created_at.strftime("%b %d, %Y %H:%M") %></td>
-                   <td><%= article.published_at.present? ? article.created_at.strftime("%b %d, %Y %H:%M") : "Draft" %></td>
+                   <td><%= article.published_at.present? ? article.published_at.strftime("%b %d, %Y %H:%M") : "Draft" %></td>
                    <td><%= article.user.name %></td>
                  </tr>
                <% end %>

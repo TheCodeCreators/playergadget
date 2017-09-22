@@ -30,6 +30,8 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  process convert: 'png'
+
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fit: [200, nil]
@@ -45,6 +47,10 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
 
   version :large do
     process resize_to_fit: [1200, nil]
+  end
+
+  version :xlarge do
+    process resize_to_fit: [1920, nil]
   end
 
   # version :blurred do
