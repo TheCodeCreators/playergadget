@@ -17,6 +17,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def current_name
+    username.present? ? username : name
+  end
+
   # Setter for name.
   # Receives a name (namely the name gitlab sends us) and puts
   # the first name extracted inside first_name and everything else
