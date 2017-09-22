@@ -8,13 +8,13 @@ document.addEventListener("turbolinks:load", function() {
     // Finds the resolution and matches with an image size
     if ($(this).width() < 200) {
       // Nothing to do here, this is the default size
-    } else if ($(this).width() < 400) {
+    } else if ($(this).width() < 400 && $(this).height() < 300) {
       bg_url = "url(" + path + "small_" + filename +")"
       $(this).css("background-image", bg_url)
-    } else if ($(this).width() < 800) {
+    } else if ($(this).width() < 800 && $(this).height() < 600) {
       bg_url = "url(" + path + "medium_" + filename +")"
       $(this).css("background-image", bg_url)
-    } else if ($(this).width() < 1200) {
+    } else if ($(this).width() < 1200 && $(this).height() < 900) {
       bg_url = "url(" + path + "large_" + filename +")"
       $(this).css("background-image", bg_url)
     } else {
