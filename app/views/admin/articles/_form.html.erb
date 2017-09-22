@@ -45,8 +45,13 @@
 
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :published_at %><br />
-        <%= f.text_field :published_at, class:"form-control input-sm" %>
+        <%= f.label :published_at %>
+        <div class='input-group date'>
+          <%= f.text_field :published_at, class:"form-control input-sm datepicker" %>
+          <span class="input-group-addon">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>

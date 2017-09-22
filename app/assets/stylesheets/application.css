@@ -12,8 +12,13 @@
  *
  *= require font-awesome.min
  *= require bootstrap.min
+ *= require jquery-ui.min
  *= require select2.min
  *= require select2-bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+#ui-datepicker-div .ui-widget-content .ui-icon {
+    background-image: url("/images/ui-icons_444444_256x240.png");
+}
