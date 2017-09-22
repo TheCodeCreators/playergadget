@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery.min
+//= require jquery-ui.min
 //= require ckeditor/init
 //= require bootstrap.min
 //= require rails-ujs

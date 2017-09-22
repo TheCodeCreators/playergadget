@@ -7,6 +7,7 @@ class Article < ApplicationRecord
   friendly_id :title, use: :slugged
   mount_uploader :image, ArticleImageUploader
 
+  scope :published, -> { where('published_at is not null AND published_at <= ?', Time.zone.now) }
   scope :recent, -> { where('created_at > ?', 1.week.ago.beginning_of_day) }
   scope :older, -> { where('created_at <= ?', 1.week.ago) }
 
