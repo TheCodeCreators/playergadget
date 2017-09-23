@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   friendly_id :title, use: :slugged
   mount_uploader :image, ArticleImageUploader
 
+  validates :title, presence: true
+
   before_destroy :remove__all_image_versions
 
   scope :published, -> { where('published_at is not null AND published_at <= ?', Time.zone.now) }
