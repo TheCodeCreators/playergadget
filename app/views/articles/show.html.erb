@@ -20,11 +20,11 @@
     <div class="col-md-8">
       <article class="article-show">
         <%= @article.body.html_safe %>
+        <div data-turbolinks-no-cache class="fb-share-button" 
+        data-href="<%= request.original_url %>" 
+        data-layout="button">
+        </div>
       </article>
-      <div data-turbolinks-no-cache class="fb-share-button" 
-      data-href="<%= request.original_url %>" 
-      data-layout="button">
-      </div>
     </div>
     <div class="col-md-4">
       <%= render 'shared/skyscrapper' %>
