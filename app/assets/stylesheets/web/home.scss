@@ -58,10 +58,13 @@ body {
   .top-article-teaser {
     display: none;
   }
-  @media(min-width:768px) {
-    .top-article-teaser {
-      display: none;
-    }
+}
+
+@media(min-width:768px) {
+  .top-article-teaser {
+    display: none;
+  }
+  .top-article {
     &:hover {
       .top-article-teaser {
         display: block;
