@@ -32,7 +32,7 @@
                    <td><%= hl.position.humanize %></td>
                    <td><%= hl.active ? 'Active' : 'Inactive' %></td>
                    <td><%= hl.image_id %></td>
-                   <td><%= hl.article_id %></td>
+                   <td><%= hl.article.title %></td>
                    <td><%= hl.created_at.strftime("%b %d, %Y %H:%M") %></td>
                    <td>
                      <%= link_to edit_admin_highlight_path(hl) do %>
