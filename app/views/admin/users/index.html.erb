@@ -11,6 +11,8 @@
              <!-- table headers -->
              <thead>
                <tr>
+                 <th>Current Name</th>
+                 <th>Username</th>
                  <th>Name</th>
                  <th>Is admin?</th>
                  <th>Created_at</th>
@@ -20,6 +22,8 @@
              <tbody>
                <% @users.each do |user| %>
                  <tr>
+                   <td><%= user.current_name %></td>
+                   <td><%= user.username %></td>
                    <td><%= user.name %></td>
                    <td><%= user.admin? %></td>
                    <td><%= user.created_at.strftime("%b %d, %Y %H:%M") %></td>
