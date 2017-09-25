@@ -20,9 +20,22 @@
         </div>
         <div class="row new-reply-form hidden">
           <div class="col-md-12">
-            <%= form_for [comment, Comment.new] do |f| %>
-              <%= f.text_area :body, placeholder: "Add a Reply...", class: 'form-control comments-input' %>
-              <%= f.submit "Reply", class: 'hidden' %>
+            <% if current_user.nil? %>
+              <div class="" data-toggle="modal" data-target="#loginModal">
+                <div class="row">
+                  <div class="col-xs-1">
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-11">
+                    <%= text_area_tag :body, nil, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
+                  </div>
+                </div>
+              </div>
+            <% else %>
+              <%= form_for [comment, Comment.new] do |f| %>
+                <%= f.text_area :body, placeholder: "Add a Reply...", class: 'form-control comments-input' %>
+                <%= f.submit "Reply", class: 'hidden' %>
+              <% end %>
             <% end %>
           </div>
         </div>

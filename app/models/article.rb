@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   extend FriendlyId
   belongs_to :user
   has_many :comments, as: :commentable
+  has_many :child_comments, class_name: 'Comment', foreign_key: 'original_article_id'
 
   acts_as_taggable
   friendly_id :title, use: :slugged

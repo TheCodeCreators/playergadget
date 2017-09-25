@@ -10,10 +10,11 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_back(fallback_location: root_path)
+      flash[:notice] = 'Comment created.'
     else
-      redirect_back(fallback_location: root_path)
+      flash[:alert] = 'Could not create the comment.'
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -23,8 +24,7 @@ class CommentsController < ApplicationController
   end
 
   def find_commentable
-    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+    @commentable = Comment.find_by(id: params[:comment_id]) if params[:comment_id]
     @commentable = Article.friendly.find(params[:article_id]) if params[:article_id]
   end
-
 end
