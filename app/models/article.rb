@@ -3,6 +3,8 @@
 class Article < ApplicationRecord
   extend FriendlyId
   belongs_to :user
+  has_many :comments, as: :commentable
+
   acts_as_taggable
   friendly_id :title, use: :slugged
   mount_uploader :image, ArticleImageUploader

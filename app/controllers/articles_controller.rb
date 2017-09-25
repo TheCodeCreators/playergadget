@@ -5,5 +5,6 @@ class ArticlesController < ApplicationController
     @article = Article.friendly.find(params[:id])
     # Only admins can see unpublished articles
     redirect_to root_path unless @article.published? || current_user.try(:admin?)
+    @comments = @article.comments.order(created_at: :asc)
   end
 end

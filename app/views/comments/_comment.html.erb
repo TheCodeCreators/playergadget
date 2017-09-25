@@ -1,0 +1,43 @@
+<div class="comment">
+  <div class="row comment-row">
+    <div class="col-xs-12">
+      <i class="fa fa-user-circle-o fa-lg fa-fw" aria-hidden="true"></i>
+      <span class="comment-author">
+        <%= comment.user.username %>
+      </span>
+      <span class="grey-text">
+        <%= comment.created_at.strftime('%H:%M') %>
+      </span>
+      <span class="comment-body">
+        <%= comment.body %>
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="reply-link reply-to-a-comment">
+          Reply
+        </div>
+        <div class="row new-reply-form hidden">
+          <div class="col-md-12">
+            <%= form_for [comment, Comment.new] do |f| %>
+              <%= f.text_area :body, placeholder: "Add a Reply...", class: 'form-control comments-input' %>
+              <%= f.submit "Reply", class: 'hidden' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="form-and-replies with-less-margin-top">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= render partial: 'comments/comment', collection: comment.comments %>
+      </div>
+    </div>
+  </div>
+
+</div>
