@@ -6,7 +6,13 @@ Rails.application.routes.draw do
 
   # match '/auth/steam/callback', to: 'omniauthcallbacks#steam', via: [:get, :post]
   root to: 'home#index'
-  resources :articles, only: %i[index show]
+  resources :articles, only: %i[index show] do
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
+  end
 
   namespace :admin do
     get '/', to: 'dashboard#dashboard'
