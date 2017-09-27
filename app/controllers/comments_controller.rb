@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: %i[create] 
+  before_action :find_commentable, only: %i[create]
 
   def new
     @comment = current_user.comments.new
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
       @comment.destroy
       redirect_back(fallback_location: root_path)
     else
-      flash.now[:danger] = "error"
+      flash.now[:danger] = 'error'
     end
   end
 
@@ -37,11 +37,10 @@ class CommentsController < ApplicationController
       @comment.destroy
       flash[:notice] = 'Comment successfully deleted.'
     else
-      flash.now[:danger] = "error"
+      flash.now[:danger] = 'error'
     end
     redirect_back(fallback_location: root_path)
   end
-
 
   private
 
