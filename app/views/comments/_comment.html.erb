@@ -14,10 +14,21 @@
     </div>
 
 
-    <div class="row">
+    <div class="row comment-actions">
       <div class="col-xs-12">
         <div class="reply-link reply-to-a-comment">
-          Reply
+          <span class="reply-action action">
+            Reply
+          </span>
+          <% if current_user == comment.user || current_user.admin? %>
+            <span class="edit-action action">
+              <%= link_to 'Edit', edit_comment_path(comment) %>
+            </span>
+            <span class="delete-action action">
+              <%= link_to "Delete", comment_path(comment),
+               method: :delete, data: { confirm: "Are you sure?"} %>
+            </span>
+          <% end %>
         </div>
         <div class="row new-reply-form hidden">
           <div class="col-md-12">
@@ -45,17 +56,7 @@
   </div>
 
   <div class="form-and-replies with-less-margin-top">
-    <% if comment.comments_count.positive? %>
-      <div class="row with-less-margin-top link-to-show-replies">
-        <div class="col-md-12">
-          <span class="show-comment-replies reply-link">
-            <i class="fa fa-long-arrow-right fa-fw" aria-hidden="true"></i>
-            <%= pluralize(comment.comments_count, 'reply') %>
-          </span>
-        </div>
-      </div>
-    <% end %>
-    <div class="row replies-row hidden">
+    <div class="row replies-row">
       <div class="col-xs-12">
         <%= render partial: 'comments/comment', collection: comment.comments %>
       </div>

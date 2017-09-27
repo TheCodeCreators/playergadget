@@ -5,6 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     height: 36px;
+    overflow: auto;
   }
 
   .comment {
@@ -31,12 +32,22 @@
     margin-top: -10px;
   }
 
+  .comment-actions {
+    .action {
+      margin-right: 5px;
+    }
+    a {
+      text-decoration: none;
+      color: #2BBCF1 ;
+    }
+  }
+
   .reply-link {
     text-decoration: underline;
     cursor: pointer;
     color: #2BBCF1;
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 13px;
     margin-left: 30px;
   }
 
