@@ -1,58 +1,117 @@
-<div class="container-fluid with-less-margin-top with-padding-top min-height-page">
+<div class="container with-less-margin-top with-padding-top min-height-page account-page">
   <div class="row">
-    <div class="col-md-offset-3 col-md-6 user-account">
-      <h3>
-        <%= @user.username.present? ? @user.username : @user.name %><br>
-        <small>account details</small>
+    <div class="col-md-12">
+      <h3 class="page-title">
+        <%= @user.username.present? ? @user.username : @user.name %> -
+        <small class="page-title"> your account details</small>
       </h3>
-<br>
-      <div class="form-group">
-        <%= form_for(@user, url: edit_member_account_path(@user)) do |f| %>
-          <%= devise_error_messages! %>
-
-          <div class="form-group">
-            <%= f.text_field :username, class:"form-control", placeholder:"Username" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.text_field :first_name, class:"form-control", placeholder:"First Name" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.email_field :email, class:"form-control", placeholder:"Email Address" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.check_box :allow_emails %>
-            <%= f.label :allow_emails, 'Send me news and information' %>
-          </div>
-
-          <% if @user.steam_uid.present? %>
-            <div class="form-group">
-              <%= f.label :steam_uid %>:
-              <%= f.text_field :steam_uid, class:"form-control" %>
-              <small>Delete this to remove Steam association</small>
-            </div>
-          <% else %>
-            <%= link_to omniauth_authorize_path(resource_name, 'steam') do %>
-            <div class="btn-lg btn-block btn-social btn-steam btn-custom2">
-              <i class="fa fa-steam fa-lg fa-fw"></i> Enable Log In With Steam
-            </div>
-            <% end %>
-          <% end %>
-          <br>
-          <div class="form-group">
-            <%= f.submit "Update", class:"btn btn-lg btn-block btn-custom" %>
-          </div>
-
-        <% end %>
-      </div>
-
-
     </div>
   </div>
+
+  <%= form_for(@user, url: edit_member_account_path(@user)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row">
+      <div class="col-md-6 user-account">
+        <div class="panel my-edit-account-panel personal-information">
+          <div class="panel-heading text-center">
+            <h4>Personal information</h4>
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-group form-inline with-less-margin-top-row">
+              <div class="avatar-placeholder">
+                <% if @user.avatar.present? %>
+                  <%= image_tag(@user.avatar_url, id:"img_prev", src:"#") %>
+                <% else %>
+                  <img src='/images/avatar.png'>
+                <% end %>
+                <span class="choose-file">
+                  <span class="upload-file-text">
+                    Upload a profile picture
+                  </span>
+                  <span class="file-button">
+                    <%= f.file_field :avatar, type:'file', class:"hidden avatar-file-btn" %>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :first_name, 'First name:', class:'my-edit-label' %>
+              <%= f.text_field :first_name, class:"form-control my-edit-account-input" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :last_name, 'Last name:', class:'my-edit-label' %>
+              <%= f.text_field :last_name, class:"form-control my-edit-account-input" %>
+            </div>
+
+          </div>
+
+        </div><!-- panel-end -->
+      </div><!-- col-md-6-end -->
+
+      <div class="col-md-6 user-account">
+        <div class="panel my-edit-account-panel personal-information">
+          <div class="panel-heading text-center">
+            <h4>Your PlayerGadget account details</h4>
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-group">
+              <%= f.label :username, 'Username:', class:'my-edit-label' %>
+              <%= f.text_field :username, class:"form-control my-edit-account-input" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email, 'Email Address:', class:'my-edit-label' %>
+              <%= f.email_field :email, class:"form-control my-edit-account-input" %>
+            </div>
+
+          </div>
+
+        </div><!-- panel-end -->
+
+        <div class="panel my-edit-account-panel personal-information">
+          <div class="panel-heading text-center">
+            <h4>Connect PlayerGadget with Steam!</h4>
+          </div>
+
+          <div class="panel-body">
+
+            <% if @user.steam_uid.present? %>
+              <div class="form-group">
+                <%= f.label :steam_uid %>:
+                <%= f.text_field :steam_uid, class:"form-control" %>
+                <small>Delete this to remove Steam association</small>
+              </div>
+            <% else %>
+              <%= link_to omniauth_authorize_path(resource_name, 'steam') do %>
+              <div class="btn-lg btn-block btn-social btn-steam btn-custom2">
+                <i class="fa fa-steam fa-lg fa-fw"></i> Enable Log In With Steam
+              </div>
+              <% end %>
+            <% end %>
+
+          </div>
+
+        </div><!-- panel-end -->
+
+      </div>
+    </div><!-- row end -->
+
+    <div class="row user-account">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.check_box :allow_emails %>
+          <%= f.label :allow_emails, 'Send me news and information' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Update", class:"btn btn-lg btn-custom" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

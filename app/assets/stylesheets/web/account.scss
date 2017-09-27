@@ -1,6 +1,43 @@
-.user-account {
-  color: white;
-  label {
-    font-weight: 300;
+.account-page {
+  .page-title {
+    color: #fff;
+  }
+
+  .upload-file-text {
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #2BBCF1;
+    cursor: pointer;
+  }
+
+  .avatar-placeholder {
+    img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+  }
+
+  .user-account {
+    color: white;
+    label {
+      font-weight: 300;
+    }
+
+    .my-edit-account-panel {
+      background: none;
+      border-color: #2BBCF1;
+      .panel-heading {
+        border-color: #2BBCF1;
+        background: url("/images/bg_pattern.png") repeat left top;
+      }
+      .my-edit-account-input {
+        height: 48px;
+        border-color: #2BBCF1;
+      }
+    }
+
   }
 }
