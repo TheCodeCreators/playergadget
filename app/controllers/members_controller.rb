@@ -25,6 +25,7 @@ class MembersController < ApplicationController
 
   def member_params
     params.require(:user).permit(:username,
+                                 :avatar,
                                  :first_name,
                                  :last_name,
                                  :allow_emails,
