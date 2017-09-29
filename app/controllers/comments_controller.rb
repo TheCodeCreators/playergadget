@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable
+  before_action :find_commentable, only: %i[create]
 
   def new
     @comment = current_user.comments.new
@@ -11,8 +11,36 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:notice] = 'Comment created.'
+      # redirect_to request.referer + "#comment-#{@comment.id}"
+      redirect_to request.referer + '#comments'
     else
       flash[:alert] = 'Could not create the comment.'
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.assign_attributes(comment_params)
+    if (current_user == @comment.user) || current_user.admin?
+      @comment.save
+      # redirect_to request.referer + "#comment-#{@comment.id}"
+      redirect_to request.referer + '#comments'
+    else
+      flash.now[:danger] = 'error'
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if (current_user == @comment.user) || current_user.admin?
+      @comment.destroy
+      flash[:notice] = 'Comment successfully deleted.'
+    else
+      flash.now[:danger] = 'error'
     end
     redirect_back(fallback_location: root_path)
   end

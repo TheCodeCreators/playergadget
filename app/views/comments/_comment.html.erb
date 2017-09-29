@@ -1,6 +1,6 @@
-<div class="comment">
+<div class="comment" id="comment-<%= comment.id %>">
   <div class="row comment-row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 inner-comment-row">
       <i class="fa fa-user-circle-o fa-lg fa-fw" aria-hidden="true"></i>
       <span class="comment-author">
         <%= comment.user.username %>
@@ -9,14 +9,31 @@
         <%= comment.created_at.strftime('%H:%M') %>
       </span>
       <span class="comment-body">
-        <%= comment.body %>
+        <%= comment.body.strip %>
       </span>
     </div>
 
-    <div class="row">
+
+    <div class="row comment-actions">
       <div class="col-xs-12">
-        <div class="reply-link reply-to-a-comment">
-          Reply
+        <div class="reply-link reply-to-a-comment actions-save hidden" data-id="<%= comment.id %>">
+          <span class="reply-action action">
+            Save
+          </span>
+        </div>
+        <div class="reply-link reply-to-a-comment actions-edit">
+          <span class="reply-action action">
+            Reply
+          </span>
+          <% if current_user == comment.user || current_user.admin? %>
+            <span class="edit-action action">
+              <%= link_to 'Edit', edit_comment_path(comment) %>
+            </span>
+            <span class="delete-action action">
+              <%= link_to "Delete", comment_path(comment),
+               method: :delete, data: { confirm: "Are you sure?"} %>
+            </span>
+          <% end %>
         </div>
         <div class="row new-reply-form hidden">
           <div class="col-md-12">
@@ -33,7 +50,7 @@
               </div>
             <% else %>
               <%= form_for [comment, Comment.new] do |f| %>
-                <%= f.text_area :body, placeholder: "Add a Reply...", class: 'form-control comments-input' %>
+                <%= f.text_area :body, placeholder: "Add a Reply...", class: 'form-control comments-input', data: { id:comment.id } %>
                 <%= f.submit "Reply", class: 'hidden' %>
               <% end %>
             <% end %>
@@ -43,10 +60,8 @@
     </div>
   </div>
 
-
-
   <div class="form-and-replies with-less-margin-top">
-    <div class="row">
+    <div class="row replies-row">
       <div class="col-xs-12">
         <%= render partial: 'comments/comment', collection: comment.comments %>
       </div>

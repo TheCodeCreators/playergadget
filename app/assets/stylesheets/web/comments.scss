@@ -5,6 +5,8 @@
     display: flex;
     flex-wrap: wrap;
     height: 36px;
+    overflow: auto;
+    resize: vertical; 
   }
 
   .comment {
@@ -29,6 +31,16 @@
 
   .actions-row {
     margin-top: -10px;
+  }
+
+  .comment-actions {
+    .action {
+      margin-right: 5px;
+    }
+    a {
+      text-decoration: none;
+      color: #2BBCF1 ;
+    }
   }
 
   .reply-link {
