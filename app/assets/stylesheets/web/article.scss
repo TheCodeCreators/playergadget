@@ -13,3 +13,45 @@
   font-weight: 500;
   padding: 1em 3em;
 }
+
+.my-tabpanel {
+  margin-top: 20px;
+  background: url("/images/bg_pattern.png") repeat left top;
+  border-radius: 5px;
+  .tab-content {
+    .list-group-item {
+      background: url("/images/bg_pattern.png") repeat left top !important;
+      color: #fff;
+      border: 1px solid #2BBCF1;
+      height: 73px;
+    }
+    .list-group-item:first-child {
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+  }
+  .nav-tabs {
+    border-bottom: none;
+  }
+}
+/* tab color */
+.nav-tabs>li>a {
+  background: url("/images/bg_pattern.png") repeat left top;
+  border-color: #2BBCF1;
+  width: 100%;
+  color:#fff;
+}
+
+/* active tab color */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #fff;
+  background: url("/images/bg_pattern.png") repeat left top;
+  border: 1px solid #2BBCF1;
+}
+
+/* hover tab color */
+.nav-tabs>li>a:hover {
+  border-color: #2BBCF1;
+  background: url("/images/bg_pattern.png") repeat left top;
+  color:#fff;
+}
