@@ -11,10 +11,12 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:notice] = 'Comment created.'
+      # redirect_to request.referer + "#comment-#{@comment.id}"
+      redirect_to request.referer + "#comments"
     else
       flash[:alert] = 'Could not create the comment.'
+      redirect_back(fallback_location: root_path)
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def edit
@@ -24,8 +26,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.assign_attributes(comment_params)
     if (current_user == @comment.user) || current_user.admin?
-      @comment.destroy
-      redirect_back(fallback_location: root_path)
+      @comment.save
+      # redirect_to request.referer + "#comment-#{@comment.id}"
+      redirect_to request.referer + "#comments"
     else
       flash.now[:danger] = 'error'
     end
