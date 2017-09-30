@@ -19,6 +19,9 @@
   <div class="row">
     <div class="col-md-8">
       <article class="article-show">
+        <div class="article-date">
+          <%= time_ago_in_words(@article.published_at) %> ago
+        </div>
         <%= @article.body.html_safe %>
         <div data-turbolinks-no-cache class="fb-share-button" 
         data-href="<%= request.original_url %>" 
