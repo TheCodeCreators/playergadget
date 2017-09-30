@@ -24,13 +24,12 @@ module ApplicationHelper
   end
 
   def generate_articles_list
-    Article.includes(:user)
+    Article.published.includes(:user)
            .references(:user)
            .order('articles.title ASC')
            .map { |article|
              ["#{article.title} //
-              #{article.user.name} //
-              #{article.published? ? 'Live' : 'Draft'}",
+              #{article.user.name}",
               article.id]
            }
   end
