@@ -25,7 +25,7 @@
           <span class="reply-action action">
             Reply
           </span>
-          <% if current_user == comment.user || current_user.admin? %>
+          <% if current_user == comment.user || current_user.try(:admin?) %>
             <span class="edit-action action">
               <%= link_to 'Edit', edit_comment_path(comment) %>
             </span>
