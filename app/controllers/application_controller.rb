@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
-  before_action :check_if_white_listed
+  # uncomment this to LOCK the site to whitelist IPs only
+  # before_action :check_if_white_listed
 
   private
 
