@@ -23,11 +23,13 @@ Rails.application.routes.draw do
     resources :highlights
   end
 
+  get '/sitemap.xml', to: 'sitemap#index', defaults: { format: 'xml' }
+
   get '/terms-of-service', to: 'home#terms_of_service'
   get '/privacy-policy', to: 'home#privacy_policy'
   get '/about-us', to: 'home#about_us'
 
-  get '/:id', to: 'members#show'
+  # get '/:id', to: 'members#show'
   get '/users/account', to: 'members#account'
   patch '/users/account', to: 'members#update', as: 'edit_member_account'
 end
