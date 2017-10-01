@@ -50,9 +50,10 @@
         -ms-transform: scale(1.5);
     }
     .panel-footer {
-      border-color: #2BBCF1;
+      border: none;
       position: relative;
       color: #fff;
+      padding: 2px;
       h5 {
         font-weight: bold;
         font-size: 16px;
