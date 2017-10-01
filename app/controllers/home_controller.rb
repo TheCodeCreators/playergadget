@@ -3,7 +3,7 @@
 class HomeController < ApplicationController
   # home
   def index
-    @articles = Article.published.order(published_at: :desc).paginate(page: params[:page], per_page: 5)
+    @articles = Article.published.order(published_at: :desc)
     @highlights = Highlight.includes(:article).references(:article).active
   end
 
