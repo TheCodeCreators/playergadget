@@ -1,0 +1,16 @@
+<div class="side-articles-list text-center">
+  <h4 class="title">
+    READ ALSO
+  </h4>
+  <% @side_articles.each do |article| %>
+    <%= link_to article_path(article) do %>
+      <div class="panel panel-default my-side-article-panel">
+        <div class="panel-body"style="background: url(<%= article.image.thumb %>) no-repeat center center; background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
+        </div>
+        <div class="panel-footer">
+          <h5><%= article.title %></h5>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
