@@ -7,6 +7,6 @@ class ArticlesController < ApplicationController
     redirect_to root_path unless @article.published? || current_user.try(:admin?)
     @comments = @article.comments.order(created_at: :asc)
     # Returns all recent published articles minus the main @article.
-    @side_articles = Article.published.recent.reject{|a| a == @article}
+    @side_articles = Article.published.recent.reject { |a| a == @article }
   end
 end
