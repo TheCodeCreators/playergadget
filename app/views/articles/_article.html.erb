@@ -7,7 +7,7 @@
       </div>
       <%= @article.body.html_safe %>
       <div class="social-buttons">
-        <%= social_share_button_tag(@article.title, url: article_url(@article), image:  request.base_url + @article.image_url , desc: @article.teaser, via: "player_gadget") %>
+        <%= social_share_button_tag %>
       </div>
       <hr id="comments">
       <comments class="comments-section">
