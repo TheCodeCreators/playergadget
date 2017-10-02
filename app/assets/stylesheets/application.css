@@ -15,7 +15,6 @@
  *= require jquery-ui.min
  *= require select2.min
  *= require select2-bootstrap.min
- *= require social-share-button
  *= require_tree .
  *= require_self
  */
