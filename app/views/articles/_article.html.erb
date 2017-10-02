@@ -1,13 +1,22 @@
 <div class="panel panel-default">
   <div class="panel-body">
+
     <article class="article-show">
       <div class="article-date">
         <%= @article.published_at.present? ? time_ago_in_words(@article.published_at) : 'draft' %> ago
       </div>
       <%= @article.body.html_safe %>
-      <div data-turbolinks-no-cache class="fb-share-button" 
-      data-href="<%= request.original_url %>" 
-      data-layout="button">
+      <div class="social-buttons">
+        <div data-turbolinks-no-cache class="fb-share-button" 
+          data-href="<%= request.original_url %>" 
+          data-layout="button">
+          <i class="fa fa-facebook-square fa-3x fb-icon" data-toggle="tooltip" title="Share on Facebook" data-placement="left" aria-hidden="true"></i>
+        </div>
+        <div class="social-twitter">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= article_url(@article) %>" data-text="<%= @article.title %> " data-count="horizontal" data-via="player_gadget">
+            <i class="fa fa-twitter-square fa-3x twitter-icon" data-toggle="tooltip" title="Share on Twitter" data-placement="left" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
       <hr id="comments">
       <comments class="comments-section">

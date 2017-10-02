@@ -1,3 +1,30 @@
+.social-buttons {
+  position: absolute;
+  top: 30%;
+  left: -53px;
+  z-index: 99;
+  padding: 0 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+  .fb-icon {
+    color: #4367b1;
+  }
+  .twitter-icon {
+    color: #1ea1f3;
+  }
+  
+}
+@media(max-width: 767px) {
+  .social-buttons {
+    position: relative;
+    left: 0;
+  }
+  .fb-share-button {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
 .article {
   background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.8), rgba(0,0,0,0.9));
   img {
