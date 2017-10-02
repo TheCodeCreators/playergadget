@@ -50,6 +50,9 @@ gem 'friendly_id'
 # handles pagination
 gem 'will_paginate'
 
+# Deals with media buttons.
+gem 'social-share-button'
+
 # wysiwyg editor
 gem 'ckeditor'
 

@@ -179,7 +179,10 @@ $dark-blue: #373737;
       &:hover, &:focus {
         color: $colHighlight; }}
     .navbar-text {
-      color: $colDefault; }
+      color: $colDefault;
+      a {
+        color: $colDefault;
+      }}
     .navbar-nav {
       > li {
         > a {

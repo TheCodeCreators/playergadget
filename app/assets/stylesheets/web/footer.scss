@@ -1,5 +1,11 @@
+$colDefault     : #9d9d9d;
 .navbar-inverse {
   .row {
     margin-bottom: 0px;
+  }
+  .social-icons {
+    a {
+      color: $colDefault;
+    }
   }
 }
