@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  # Test social media features:
+  # Facebook: https://developers.facebook.com/tools/debug
+  # Twitter: https://cards-dev.twitter.com/validator
   extend FriendlyId
   belongs_to :user
   has_many :comments, as: :commentable
