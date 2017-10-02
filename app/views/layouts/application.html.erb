@@ -24,6 +24,10 @@
       <meta property="og:site_name" content="PlayerGadget" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:type" content="website" />
+      <meta name="twitter:site" content="<%= request.original_url %>" />
+      <meta name="twitter:title" content="<%= @article.title %>" />
+      <meta name="twitter:description" content="<%= @article.teaser %>" />
+      <meta name="twitter:image" content="<%= @article.image.to_s %>" />
     <% end %>
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
