@@ -17,6 +17,5 @@
 //= require rails-ujs
 //= require select2.min
 //= require turbolinks
-//= require social-share-button
 //= require dropzone
 //= require_tree .
