@@ -6,20 +6,37 @@
   padding: 0 0 10px;
   width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
   .fb-icon {
     color: #4367b1;
   }
   .twitter-icon {
     color: #1ea1f3;
   }
-  
+
+  $size: 30px;
+
+  .social-share-button {
+    .ssb-icon {
+      background-size: $size $size;
+      height: $size;
+      width: $size;
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
 }
-@media(max-width: 767px) {
+@media(max-width: 768px) {
   .social-buttons {
     position: relative;
     left: 0;
+    .social-share-button {
+      .ssb-icon {
+        display: inline-block;
+      }
+    }
   }
-  .fb-share-button {
+  .fb-icon {
     float: left;
     margin-right: 10px;
   }
