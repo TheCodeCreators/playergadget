@@ -19,7 +19,7 @@
     <% if @article %>
       <meta property="og:title" content="<%= @article.title %>" />
       <meta property="og:url" content="<%= request.original_url %>" />
-      <meta property="og:image" content="<%= @article.image.to_s %>" />
+      <meta property="og:image" content="<%= request.base_url + @article.image.to_s %>" />
       <meta property="og:description" content="<%= @article.teaser %>" />
       <meta property="og:site_name" content="PlayerGadget" />
       <meta property="og:locale" content="en_GB" />
