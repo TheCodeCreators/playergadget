@@ -14,6 +14,7 @@ class Article < ApplicationRecord
   mount_uploader :image, ArticleImageUploader
 
   validates :title, presence: true
+  validates :image, presence: true
 
   before_destroy :remove__all_image_versions
 
