@@ -37,7 +37,7 @@
                    <td class="article-intro"><%= raw article.intro %></td>
                    <td><%= article.created_at.strftime("%b %d, %Y %H:%M") %></td>
                    <td><%= article.published_at.present? ? article.published_at.strftime("%b %d, %Y %H:%M") : "Draft" %></td>
-                   <td><%= article.user.name %></td>
+                   <td><%= article.user.current_name %></td>
                  </tr>
                <% end %>
              </tbody>
