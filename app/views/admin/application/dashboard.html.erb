@@ -109,19 +109,19 @@
        <div class="panel-heading">
           <div class="row">
             <div class="col-xs-3">
-              <i class="fa fa-server fa-5x"></i>
+              <i class="fa fa-newspaper-o fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
               <div class="huge">
-                <%= Ip.all.count %>
+                <%= Article.all.count %>
               </div>
-              <div>IP's allowed</div>
+              <div>Articles in total</div>
             </div>
           </div>
         </div>
         <a href="#">
           <div class="panel-footer">
-            <%= link_to admin_ips_path do %>
+            <%= link_to admin_articles_path do %>
               <span class="pull-left">
                 View Details
               </span>
