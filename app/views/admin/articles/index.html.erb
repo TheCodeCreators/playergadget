@@ -25,7 +25,6 @@
              <tr  class="panel-heading">
                <th class="text-center" colspan="2">Author</th>
                <th class="text-center">Title</th>
-               <th class="text-center">Comments count</th>
                <th class="text-center">Tags</th>
                <th class="text-center">Published at</th>
                <th class="text-center">Actions</th>
@@ -38,7 +37,6 @@
                  <td><%= design_avatar(article.user) %></td>
                  <td class="text-left"><%= article.user.current_name %></td>
                  <td><%= link_to article.title, admin_article_path(article) %></td>
-                 <td class="article-intro"><%= article.comments_count %></td>
                  <td><%= raw get_object_tags(article) %></td>
                  <td>
                    <%= article.published_at.present? ? article.published_at.strftime("%b %d, %Y %H:%M") : "Draft" %>
