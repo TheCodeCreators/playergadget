@@ -49,6 +49,14 @@
           </span>
         <% end %>
       <% end %>
+      <%= content_tag :li, class: "#{ controller_name == 'tags' ? 'active' : '' }" do %>
+        <%= link_to admin_tags_path do %>
+          <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
+          <span class="option">
+            Tags
+          </span>
+        <% end %>
+      <% end %>
     </ul>
   </div>
   <!-- /.sidebar-collapse -->

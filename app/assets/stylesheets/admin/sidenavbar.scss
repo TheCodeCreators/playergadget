@@ -6,6 +6,10 @@ $dark-blue: #373737;
 .side-spacing {
   margin-left: 150px;
   transition: 0.2s all ease;
+  background: #f5f5f5;
+  margin-top: -20px;
+  height: auto !important;
+  min-height: 100vh;
   &.not-expanded {
     margin-left: 70px;
   }

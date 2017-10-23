@@ -7,30 +7,31 @@
     </div>
     <div class="col-md-6">
       <%= link_to edit_admin_image_path do %>
-        <span class="btn btn-success pull-right">
+        <span class="btn darker-blue-btn pull-right with-20px-margin-top">
           Edit Image
         </span>
       <% end %>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="table-responsive users-table">
-            <table class="table table-striped">
+      <div class="panel panel-default admin-area-table-panel with-20px-margin-top">
+
+          <div class="table-responsive">
+            <table class="table  text-center my-table">
               <!-- table headers -->
               <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Address</th>
-                  <th>Info</th>
+                <tr class="panel-heading">
+                  <th class="text-center">Title</th>
+                  <th class="text-center">Address</th>
+                  <th class="text-center">Info</th>
                 </tr>
               </thead>
-              <!-- companies information -->
+              <!-- image information -->
               <tbody>
-                <tr>
-                  <td><%= link_to @image.info, admin_image_path(@image) %></td>
+                <tr class="info-tr">
+                  <td><%= @image.info %></td>
                   <td><%= @image.file_url %></td>
                   <td>
                     <%= @image.created_at.strftime("%b %d, %Y %H:%M") %>
@@ -39,10 +40,14 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <div class="with-20px-margin-top text-center">
             <%= image_tag @image.file_url, class: "image-fullscreen" %>
           </div>
-        </div>
+
       </div>
     </div>
   </div>
+
 </div>

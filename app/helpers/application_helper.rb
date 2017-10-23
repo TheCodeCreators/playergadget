@@ -41,4 +41,14 @@ module ApplicationHelper
     end
     collection
   end
+
+  # Returns a list with all object's tags
+  def get_object_tags(object)
+    return if object.tag_list.blank?
+    tags = ''
+    object.tag_list.each do |tag|
+      tags += "<li><span class='badge badge-default'>" + tag + '</span></li>'
+    end
+    "<ul class='list-inline'>" + tags + '</ul>'
+  end
 end

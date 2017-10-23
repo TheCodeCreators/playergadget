@@ -1,0 +1,114 @@
+.admin-area-table-panel {
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: solid 1px #e6eaee;
+  box-shadow: none;
+  .panel-heading {
+    background-color: #d5eff6;
+    height: 73px;
+    color: #373737;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    &.without-fixed-height {
+      height: auto;
+    }
+    .table-header {
+      font-size: 14px;
+      font-weight: 600;
+      color: #7f8fa4;
+      vertical-align: middle;
+      border-bottom: 0px;
+      a {
+        color: #7f8fa4;
+      }
+    }
+  }
+  .my-table {
+    thead>tr>th {
+      vertical-align: middle;
+      border-bottom: none;
+      font-weight: 400;
+    }
+    .info-tr td {
+      vertical-align: middle;
+      color: #4a4a4a;
+    }
+  }
+}
+
+.light-blue-btn {
+  background: #6ec7e1;
+  color: #fff !important;
+  a {
+    color: #fff !important;
+    text-decoration: none;
+  }
+  &.tag-btn {
+    margin-bottom: 5px;
+  }
+
+}
+
+.light-orange-btn {
+  background: #e1886e;
+  color: #fff !important;
+}
+
+.darker-blue-btn {
+  background: #238faf;
+  color: #fff !important;
+}
+
+.light-green-btn {
+  background: #30d5a9;
+  color: #fff !important;
+}
+
+.with-20px-margin-top {
+  margin-top: 20px;
+}
+
+.user-avatar {
+  img {
+    border-radius: 50%;
+    height: 34px;
+    width: 34px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+  }
+}
+
+.blank-text {
+  color: #fff;
+  font-size: 16px;
+}
+
+.user-avatar-placeholder {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.my-admin-area-modal {
+  margin-top: 15%;
+  .modal-content {
+    background: #f5f5f5;
+  }
+  .my-admin-area-modal-input {
+    height: 48px;
+    border-radius: 3px;
+    color: #4a4a4a;
+    border: solid 1px #d6e1e4;
+    box-shadow: none;
+  }
+}
+
+.my-custom-input {
+  height: 48px;
+  border-radius: 3px;
+  color: #4a4a4a;
+  border: solid 1px #d6e1e4;
+  box-shadow: none;
+}

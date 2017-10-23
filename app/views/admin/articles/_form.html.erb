@@ -1,72 +1,86 @@
 <%= form_for [:admin,  @article], html: {role: :form} do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:</h2>
-        <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :title %> 
-    <%= f.text_field :title, class:"form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :teaser %>
-    <%= f.text_field :teaser, class:"form-control" %>
-  </div>
-
-  <%= render partial: 'image', locals: { f: f } %>
-
   <div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="form-group">
-        <% Article.tag_counts.each do |tag| %>
-          <span>
-            <b><%= tag.name %>:</b> <%= tag.taggings_count %> 
-          </span>
-        <% end %>
-      </div>
-    </div>
-  </div>
+    <div class="panel-body">
 
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.label :tag_list %><br />
-        <%= f.select :tag_list, options_for_select(ActsAsTaggableOn::Tag.all, @article.tag_list), {}, { multiple: true, class:"my-tags-input form-control", :style => "width:100%;" } %>
+      <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:</h2>
+            <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= render partial: 'image', locals: { f: f } %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :title %> 
+            <%= f.text_field :title, class:"form-control my-custom-input" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :teaser %>
+            <%= f.text_field :teaser, class:"form-control my-custom-input" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :published_at %>
+            <div class='input-group date'>
+              <%= f.text_field :published_at, class:"form-control input-sm datepicker my-custom-input" %>
+              <span class="input-group-addon">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+
+          <label>All tags available:</label>
+
+          <div class="form-group">
+            <% Article.tag_counts.each do |tag| %>
+              <button type="button" class="btn light-blue-btn tag-btn">
+                <%= link_to tag.name, admin_tags_path %>
+                <span class="badge"><%= tag.taggings_count %></span>
+              </button>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :tag_list %>
+            <%= f.select :tag_list, options_for_select(ActsAsTaggableOn::Tag.all, @article.tag_list), {}, { multiple: true, class:"my-tags-input form-control my-custom-input", :style => "width:100%;" } %>
+          </div>
+
+        </div>
       </div>
+
+      <hr>
+
     </div>
 
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.label :published_at %>
-        <div class='input-group date'>
-          <%= f.text_field :published_at, class:"form-control input-sm datepicker" %>
-          <span class="input-group-addon">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-          </span>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.label :intro %>
+          <%= f.text_area :intro, class:"form-control", rows: "5" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :body %>
+          <%= f.cktext_area :body, class:"form-control", id: 'article-body' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Save Article", :class=>'btn btn-lg btn-block darker-blue-btn' %>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :intro %>
-    <%= f.text_area :intro, class:"form-control", rows: "10" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.cktext_area :body, class:"form-control", id: 'article-body' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Save Article", :class=>'btn btn-lg btn-block btn-primary' %>
   </div>
 <% end %>
