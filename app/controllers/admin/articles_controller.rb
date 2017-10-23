@@ -47,9 +47,9 @@ module Admin
                                       :title,
                                       :body,
                                       :intro,
-                                      :tag_list,
                                       :image,
-                                      :teaser)
+                                      :teaser,
+                                      tag_list: [])
     end
   end
 end
