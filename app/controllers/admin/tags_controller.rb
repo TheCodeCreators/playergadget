@@ -2,7 +2,7 @@
 
 module Admin
   class TagsController < Admin::ApplicationController
-    before_action :set_tag, only: [:show, :edit, :update, :destroy]
+    before_action :set_tag, only: %i[show edit update destroy]
 
     def index
       @tags = ActsAsTaggableOn::Tag.all
@@ -27,7 +27,6 @@ module Admin
           format.json { render json: @tag.errors, status: :unprocessable_entity }
         end
       end
-
     end
 
     def destroy
@@ -45,6 +44,5 @@ module Admin
     def tag_params
       params.require(:acts_as_taggable_on_tag).permit(:id, :name)
     end
-
   end
 end

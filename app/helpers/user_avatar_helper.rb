@@ -8,9 +8,7 @@ module UserAvatarHelper
 
   # Gets the first letter from the first name or username and capitalizes it.
   def get_the_first_letter(user)
-    if user.current_name.present?
-      user.current_name[0, 1].capitalize
-    end
+    user.current_name[0, 1].capitalize if user.current_name.present?
   end
 
   # Returns avatar placeholder icon color.
