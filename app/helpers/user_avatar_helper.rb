@@ -18,8 +18,8 @@ module UserAvatarHelper
     allowed_colors = {
       amber:          '#FFC107',
       blue:           '#0cc',
-      darkblue:       '#0D47A1',
       darkcyan:       '#00ACC1',
+      darkblue:       '#0D47A1',
       darkgrey:       '#a9a9a9',
       darkgreen:      '#2E7D32',
       darkkhaki:      '#C0CA33',
