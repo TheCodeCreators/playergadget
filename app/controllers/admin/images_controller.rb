@@ -41,7 +41,7 @@ module Admin
     private
 
     def image_params
-      params.require(:image).permit(:info, :file, :tag_list)
+      params.require(:image).permit(:info, :file, tag_list: [])
     end
   end
 end

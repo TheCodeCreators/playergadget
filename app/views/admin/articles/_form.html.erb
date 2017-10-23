@@ -39,7 +39,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :tag_list %><br />
-        <%= f.text_field :tag_list, value: @article.tag_list.join(', '), class:"form-control input-sm" %>
+        <%= f.select :tag_list, options_for_select(ActsAsTaggableOn::Tag.all, @article.tag_list), {}, { multiple: true, class:"my-tags-input form-control", :style => "width:100%;" } %>
       </div>
     </div>
 

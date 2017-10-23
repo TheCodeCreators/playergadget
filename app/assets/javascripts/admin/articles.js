@@ -17,4 +17,11 @@ document.addEventListener("turbolinks:load", function() {
   $('.datepicker').datepicker({
       dateFormat: 'dd-mm-yy'
   });
+  // initializes a select2 with tagging support
+  $('.my-tags-input').each(function() {
+    $(this).select2({
+      tags: true,
+      tokenSeparators: [','],
+    });
+  });
 });
