@@ -8,6 +8,10 @@ module Admin
 
     def new
       @ip = Ip.new
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def create
@@ -21,6 +25,10 @@ module Admin
 
     def edit
       @ip = Ip.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def update

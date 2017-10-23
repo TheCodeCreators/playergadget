@@ -4,3 +4,16 @@
      height: 100%;
   }
 }
+
+.admin-article-layout {
+  .dotted-border-container {
+    height: 100%;
+    border: 1px solid #ddd;
+    min-height: 350px;
+    .img-placeholder {
+      font-size: 250px;
+      color: #ccc;
+      margin-top: 43px;
+    }
+  }
+}

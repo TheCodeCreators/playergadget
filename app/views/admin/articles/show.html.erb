@@ -1,47 +1,89 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
-      <h3 class="users-page-title">
-        <%= @article.title %>
-      </h3>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-offset-10 col-md-2">
       <%= link_to edit_admin_article_path do %>
-        <span class="btn btn-success pull-right">
+        <span class="btn darker-blue-btn pull-right with-20px-margin-top">
           Edit Article
         </span>
       <% end %>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong>Author:</strong> <%= @article.user.name %><br>
-          <strong>Created At:</strong> <%= @article.created_at.strftime("%b %d, %Y %H:%M") %><br>
-          <strong>Published:</strong> <%= @article.published_at.present? ? @article.created_at.strftime("%b %d, %Y %H:%M") : "Draft" %><br>
-          <strong>Image:</strong> # add image link target: _blank<br>
-          <strong>Tags:</strong> <%= @article.tag_list %>
-        </div>
-        <div class="panel-body">
+      <div class="panel panel-default admin-area-table-panel with-20px-margin-top">
+        <div class="panel-heading without-fixed-height">
+          <h3 class="title">
+            <%= @article.title %>
+          </h3>
           <strong>Teaser:</strong>
-          <div class="panel panel-default">
-            <div class="panel-body article-intro">
-              <%= raw @article.teaser %><br>
+          <span class="">
+            <%= raw @article.teaser %><br>
+          </span>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel-body">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Intro:</strong>
+                  </li>
+
+                  <li class="list-group-item">
+                    <%= raw @article.intro %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="panel-body">
+                <!-- List group -->
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <span class="left">
+                        Author:
+                      </span>
+                      <span class="right pull-right">
+                        <%= @article.user.name %>
+                      </span>
+                    </li>
+                    <li class="list-group-item">
+                      Created At:
+                      <span class="right pull-right">
+                        <%= @article.created_at.strftime("%b %d, %Y %H:%M") %>
+                      </span>
+                    </li>
+                    <li class="list-group-item">
+                      Published:
+                      <span class="right pull-right">
+                        <%= @article.published_at.present? ? @article.created_at.strftime("%b %d, %Y %H:%M") : "Draft" %>
+                      </span>
+                    </li>
+                    <li class="list-group-item">
+                      Tags:
+                      <span class="right pull-right">
+                        <%= raw get_object_tags(@article) %>
+                      </span>
+                    </li>
+                  </ul>
+              </div>
             </div>
           </div>
-          <strong>Intro:</strong>
-          <div class="panel panel-default">
-            <div class="panel-body article-intro">
-              <%= raw @article.intro %><br>
-            </div>
-          </div>
-          <strong>body:</strong>
-          <div class="panel panel-default">
-            <div class="panel-body article-body">
-              <%= raw @article.body %><br>
-            </div>
-          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <strong>Body:</strong>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= raw @article.body %><br>
         <div>
       </div>
     </div>

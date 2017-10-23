@@ -7,9 +7,8 @@ document.addEventListener("turbolinks:load", function() {
 
       reader.onload = function (e) {
         $('#img_prev')
-          .attr('src', e.target.result)
-          .width(320)
-          .height(180);
+        .attr('src', e.target.result);
+        $('.placeholder').addClass('hidden');
       };
       reader.readAsDataURL(input.files[0]);
     }

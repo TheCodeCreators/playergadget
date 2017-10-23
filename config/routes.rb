@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :images
     resources :ips
     resources :highlights
+    resources :tags
   end
 
   get '/sitemap.xml', to: 'sitemap#index', defaults: { format: 'xml' }

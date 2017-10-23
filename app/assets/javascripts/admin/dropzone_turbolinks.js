@@ -1,8 +1,8 @@
+// sets autoDiscover to false
+Dropzone.autoDiscover = false;
 // initializes function ready to use it later with turbolinks
 var ready;
 ready = function() {
-  // sets autoDiscover to false
-  Dropzone.autoDiscover = false;
   // creates expense dropzone object
   $("#myDrop").dropzone({
     acceptedFiles: '.jpg, .jpeg, .gif, .png, .pdf, .txt, .log',
