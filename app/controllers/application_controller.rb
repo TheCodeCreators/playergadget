@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
   # uncomment this to LOCK the site to whitelist IPs only
-  before_action :check_if_white_listed
+  before_action :check_if_white_listed, if: :staging_env?
 
   private
 
@@ -46,10 +46,13 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable Style/GuardClause
   def check_if_white_listed
-    return true unless ENV['RAILS_ENV'] == 'staging'
     unless Ip.pluck(:addr).include?(request.ip) || Ip.pluck(:addr).include?(request.env['HTTP_X_REAL_IP'])
       render(file: Rails.root.join('public', '403.html'), status: 403, layout: false)
     end
   end
   # rubocop:enable Style/GuardClause
+
+  def staging_env?
+    ENV['RAILS_ENV'] == 'staging'
+  end
 end
