@@ -50,8 +50,6 @@ gem 'friendly_id'
 # handles pagination
 gem 'will_paginate'
 
-gem 'shareable'
-
 # wysiwyg editor
 gem 'ckeditor'
 
