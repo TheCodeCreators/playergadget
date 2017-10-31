@@ -53,6 +53,6 @@ class ApplicationController < ActionController::Base
   # rubocop:enable Style/GuardClause
 
   def staging_env?
-    ENV['RAILS_ENV'] == 'development'
+    ENV['RAILS_ENV'] == 'staging'
   end
 end
