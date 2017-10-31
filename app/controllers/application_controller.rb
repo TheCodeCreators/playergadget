@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
   # uncomment this to LOCK the site to whitelist IPs only
-  # before_action :check_if_white_listed
+  before_action :check_if_white_listed, if: :staging_env?
 
   private
 
@@ -51,4 +51,8 @@ class ApplicationController < ActionController::Base
     end
   end
   # rubocop:enable Style/GuardClause
+
+  def staging_env?
+    ENV['RAILS_ENV'] == 'staging'
+  end
 end
