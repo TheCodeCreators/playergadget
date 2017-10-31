@@ -1,6 +1,6 @@
-set :stage, :staging
+# set :stage, :staging
 server '192.168.1.4', user: 'rp', roles: %w[web app db]
-set :rails_env, :staging
+# set :rails_env, :staging
 ask :branch, 'staging'
 
 # frozen_string_literal: true

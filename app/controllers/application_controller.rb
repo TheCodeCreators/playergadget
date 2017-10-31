@@ -46,7 +46,6 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable Style/GuardClause
   def check_if_white_listed
-    binding.pry
     unless Ip.pluck(:addr).include?(request.ip) || Ip.pluck(:addr).include?(request.env['HTTP_X_REAL_IP'])
       render(file: Rails.root.join('public', '403.html'), status: 403, layout: false)
     end
@@ -54,6 +53,6 @@ class ApplicationController < ActionController::Base
   # rubocop:enable Style/GuardClause
 
   def staging_env?
-    ENV['RAILS_ENV'] == 'staging'
+    ENV['RAILS_ENV'] == 'development'
   end
 end
