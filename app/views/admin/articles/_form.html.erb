@@ -71,6 +71,11 @@
           <%= f.text_area :intro, class:"form-control", rows: "5" %>
         </div>
 
+        <div class="form-group" style="border:1px solid #ccc;padding:10px 10px 0px 10px;border-radius:2px;">
+          <p>
+            <strong>Add a youtube video:</strong> <%= '<div class="youtube-player" data-id="VIDEO_ID"></div>' %>
+          </p>
+        </div>
         <div class="form-group">
           <%= f.label :body %>
           <%= f.cktext_area :body, class:"form-control", id: 'article-body' %>
