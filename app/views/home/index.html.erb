@@ -20,7 +20,6 @@
 <div class="jumbotron my-jumbotron separator">
   <div class="container">
     <div class="row text-center">
-
       <div class="col-md-3">
         <%= render partial: 'small_article', locals: { article: @highlights.line_1[0].article } %>
       </div>
@@ -33,10 +32,17 @@
       <div class="col-md-3">
         <%= render partial: 'small_article', locals: { article: @highlights.line_4[0].article } %>
       </div>
-
     </div>
 
+    <div class="text-center tags-row">
+      <div class="tag-list main-page-tag-list">
+        <% @tags.each do |tag| %>
+          <%= link_to tag.name, tagged_path(tag.name), class:"btn light-blue-btn tag-btn" %>
+        <% end %>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <div class="main-container container">

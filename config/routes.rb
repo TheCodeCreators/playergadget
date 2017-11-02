@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :articles, only: %i[index show] do
     resources :comments
   end
+  get '/tagged/:id', to: 'tags#show', as: 'tagged'
 
   resources :comments do
     resources :comments

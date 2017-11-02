@@ -70,6 +70,6 @@
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <% end %>
     <%= render 'admin/layouts/flash' %>
-    <%= render 'layouts/cookie_policy' %>
+    <%= render 'layouts/cookie_policy' unless current_user %>
   </body>
 </html>
