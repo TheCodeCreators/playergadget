@@ -6,7 +6,7 @@ module Admin
 
     def index
       @tags = ActsAsTaggableOn::Tag.all
-                                   .order(id: :desc)
+                                   .order(taggings_count: :desc)
                                    .paginate(page: params[:page], per_page: 50)
     end
 
