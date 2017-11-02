@@ -164,3 +164,15 @@
     background: url("//i.imgur.com/TxzC70f.png") no-repeat;
     cursor: pointer;
 }
+
+.btn {
+  &.btn-tag {
+    border: none;
+    color: rgba(0,0,0,.6);
+    background: rgba(0,0,0,.05);
+    a {
+      text-decoration: none;
+      color: rgba(0,0,0,.6);
+    }
+  }
+}
