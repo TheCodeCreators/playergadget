@@ -33,7 +33,11 @@
       <div class="col-md-3">
         <%= render partial: 'small_article', locals: { article: @highlights.line_4[0].article } %>
       </div>
-
+      <div class="tag-list">
+        <% @tags.each do |tag| %>
+          <span class="badge"><%= link_to tag.name, tagged_path(tag.name) %></span>
+        <% end %>
+      </div>
     </div>
 
   </div>

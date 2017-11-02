@@ -71,6 +71,6 @@
     <% end %>
     <%= render 'admin/layouts/flash' %>
     <%= render 'layouts/footer' %>
-    <%= render 'layouts/cookie_policy' %>
+    <%= render 'layouts/cookie_policy' unless current_user %>
   </body>
 </html>

@@ -1,0 +1,47 @@
+<br><br><br><br>
+<div class="jumbotron my-jumbotron separator">
+  <div class="container">
+    <div class="row text-center">
+
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_1[0].article } %>
+      </div>
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_2[0].article } %>
+      </div>
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_3[0].article } %>
+      </div>
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_4[0].article } %>
+      </div>
+      <div class="tag-list">
+        <% @tags.each do |tag| %>
+          <span class="badge"><%= link_to tag.name, tagged_path(tag.name) %></span>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="main-container container">
+
+  <div class="row">
+
+    <div class="col-md-8 all-articles-row" id="articles">
+      <%= render @articles %>
+    </div>
+
+    <div class="hidden" id="infinite-scrolling">
+      <%= will_paginate @articles %>
+    </div>
+
+
+    <div class="col-md-4">
+      <%= render 'shared/skyscrapper' %>
+    </div>
+
+  </div>
+
+</div>
