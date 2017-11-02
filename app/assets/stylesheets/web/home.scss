@@ -92,11 +92,39 @@ body {
     color: #00e7ff !important;
     min-width: 115px;
   }
-  
 }
 
 .separator {
   background: url("/images/bg_pattern.png") repeat left top;
+}
+
+.tags-row::-webkit-scrollbar {
+  display: none;
+}
+
+.main-page-tag-list {
+  padding-top: 25px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+  padding: 14px 4px;
+  box-sizing: border-box;
+  .tag-btn {
+    margin-right: 10px;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 16px;
+    border-radius: 18px;
+    margin: 0 4px;
+    border: 1px solid #2BBCF1;
+  }
 }
 
 .with-less-margin-top {
