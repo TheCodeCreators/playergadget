@@ -1,0 +1,7 @@
+<div class="text-center tags-row">
+  <div class="tag-list main-page-tag-list">
+    <% @tags.each do |tag| %>
+      <%= link_to tag.name, tagged_path(tag.name), class:"btn light-blue-btn tag-btn" %>
+    <% end %>
+  </div>
+</div>
