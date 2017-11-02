@@ -51,4 +51,10 @@ module ApplicationHelper
     end
     "<ul class='list-inline'>" + tags + '</ul>'
   end
+
+  def generate_articles_keywords(articles)
+    words = []
+    articles.each { |a|  words << a.title }
+    words.flatten.join(', ')
+  end
 end
