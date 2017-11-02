@@ -10,6 +10,12 @@ module Admin
                                    .paginate(page: params[:page], per_page: 50)
     end
 
+    def show
+      taggings = @tag.taggings.order(taggable_type: :asc).group_by(&:taggable_type)
+      @tagged_articles = taggings['Article']
+      @tagged_images = taggings['Image']
+    end
+
     def edit
       respond_to do |format|
         format.html
@@ -38,7 +44,7 @@ module Admin
     private
 
     def set_tag
-      @tag = ActsAsTaggableOn::Tag.find(params[:id])
+      @tag = ActsAsTaggableOn::Tag.find_by(name: params[:id])
     end
 
     def tag_params

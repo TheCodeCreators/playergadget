@@ -47,7 +47,7 @@ module ApplicationHelper
     return if object.tag_list.blank?
     tags = ''
     object.tag_list.each do |tag|
-      tags += "<li><span class='badge badge-default'>" + tag + '</span></li>'
+      tags += "<li><span><a href='" + admin_tag_path(tag) + "' class='badge badge-default'>" + tag + '</a></span></li>'
     end
     "<ul class='list-inline'>" + tags + '</ul>'
   end
