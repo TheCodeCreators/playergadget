@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def display_ads?
-    ENV['RAILS_ENV'] == 'production'
+    ENV['RAILS_ENV'] == 'production' || ENV['RAILS_ENV'] == 'staging'
   end
 
   def can_show_session_links(page)

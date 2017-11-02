@@ -1,3 +1,4 @@
+$('#articles').append('<%= j render "shared/responsive" %>');
 $('#articles').append('<%= j render(@articles) %>');
 <% if @articles.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@articles) %>');
