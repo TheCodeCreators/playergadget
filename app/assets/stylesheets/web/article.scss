@@ -59,18 +59,21 @@
 .article-show {
   background: white;
   font-size: 1.4em;
-  font-weight: 500;
 }
 
 .my-tabpanel {
   margin-top: 20px;
   background: url("/images/bg_pattern.png") repeat left top;
   border-radius: 5px;
+  .with-more-padding {
+//    padding-left: 15px;
+//    padding-right: 15px;
+  }
   .tab-content {
     .list-group-item {
       background: url("/images/bg_pattern.png") repeat left top !important;
-      color: #fff;
-      border: 1px solid #2BBCF1;
+      color: #A9A9A9;
+      border: 1px solid #021921;
       height: 73px;
     }
     .list-group-item:first-child {
@@ -82,32 +85,38 @@
     border-bottom: none;
   }
 }
-/* tab color */
-.nav-tabs>li>a {
-  background: url("/images/bg_pattern.png") repeat left top;
-  border-color: #2BBCF1;
-  width: 100%;
-  color:#fff;
+
+//tab color
+.nav-tabs {
+  text-align: center;
+  background-color: #021921;
+  border: none;
+  border-radius: 0px;
+}
+.nav-tabs > li > a {
+  color: #A9A9A9;
+  border: none;
+  border-radius: 0px;
 }
 
-/* active tab color */
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-  color: #fff;
-  background: url("/images/bg_pattern.png") repeat left top;
-  border: 1px solid #2BBCF1;
+.nav-tabs > li > a:hover {
+  color: #2bbcf1;
+  background-color: #021921;
+  border: none;
+  float: left;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: 0px;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus{
+  color: #2bbcf1;
+  background-color: #043040;
+  border: none;
 }
 
-/* hover tab color */
-.nav-tabs>li>a:hover {
-  border-color: #2BBCF1;
-  background: url("/images/bg_pattern.png") repeat left top;
-  color:#fff;
-  .article-date {
-    font-size: 0.7em;
-    margin-top: 5px;
-    margin-bottom: 20px;
-  }
-}
 
 .side-articles-list {
   .title {
