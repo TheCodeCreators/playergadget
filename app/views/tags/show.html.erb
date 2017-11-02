@@ -4,6 +4,20 @@
 <%= content_for :title  do %>
   <title>PlayerGadget - <%= @tag.name %></title>
 <% end %>
+<%= content_for :social_networks  do %>
+  <meta property="og:title" content="<%= @tag.name %>" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= request.base_url + @articles.first.image.to_s %>" />
+  <meta property="og:description" content="About <%= @tag.name %> on PlayerGadget" />
+  <meta property="og:site_name" content="PlayerGadget" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@player_gadget" />
+  <meta name="twitter:title" content="<%= @tag.name %>" />
+  <meta name="twitter:description" content="About <%= @tag.name %> on PlayerGadget" />
+  <meta name="twitter:image" content="<%= request.base_url + @articles.first.image.to_s %>" />
+<% end %>
 
 <div class="container with-padding-top">
   <div class="row top-articles">
