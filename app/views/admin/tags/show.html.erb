@@ -1,0 +1,173 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="users-page-title">
+        Tag <%= @tag.name %>
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-user-secret fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">
+                <%= @tag.taggings.count %>
+              </div>
+              <div>
+                Uses
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-right">
+              have this tag
+            </span>
+            <div class="clearfix">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-yellow">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-file-image-o fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">
+                <%= @tagged_images.present? ? @tagged_images.try(:count) : '0' %>
+              </div>
+              <div>
+                Images
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-right">
+              have this tag
+            </span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-green">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-file-text fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">
+                <%= @tagged_articles.present? ? @tagged_articles.try(:count) : '0' %>
+              </div>
+              <div>
+                Articles
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-right">
+              have this tag
+            </span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <% if @tagged_articles.present? %>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="users-page-title">
+          Articles
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default admin-area-table-panel with-20px-margin-top">
+
+          <div class="table-responsive">
+            <table class="table  text-center my-table">
+              <!-- table headers -->
+              <thead>
+                <tr class="panel-heading">
+                 <th class="text-center" colspan="2">Author</th>
+                 <th class="text-center">Title</th>
+                 <th class="text-center">Tags</th>
+                 <th class="text-center">Published at</th>
+                 <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <!-- image information -->
+              <tbody>
+               <% @tagged_articles.each do |tagging| %>
+                 <%= render '/admin/shared/table_article', article: tagging.taggable %>
+               <% end %>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @tagged_images.present? %>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="users-page-title">
+          Images
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default admin-area-table-panel with-20px-margin-top">
+
+          <div class="table-responsive">
+            <table class="table  text-center my-table">
+              <!-- table headers -->
+              <thead>
+                <tr class="panel-heading">
+                <th class="text-center">Preview</th>
+                <th class="text-center">Title</th>
+                <th class="text-center">Address</th>
+                <th class="text-center">Created at</th>
+                <th class="text-center">Tags</th>
+                <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <!-- image information -->
+              <tbody>
+                <% @tagged_images.each do |tagging| %>
+                  <%= render '/admin/shared/table_image', image: tagging.taggable %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

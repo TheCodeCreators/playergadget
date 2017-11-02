@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="users-page-title">
+        Tags
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default admin-area-table-panel">
+
+        <div class="table-responsive">
+          <table class="table text-center my-table">
+           <!-- table headers -->
+           <thead>
+             <tr class="panel-heading">
+               <th class="text-center">Id</th>
+               <th class="text-center">Name</th>
+               <th class="text-center">Taggings count</th>
+               <th class="text-center">Actions</th>
+             </tr>
+           </thead>
+           <!-- tags information -->
+           <tbody>
+             <% @tags.each do |tag| %>
+               <tr>
+                 <td><%= link_to tag.id, admin_tag_path(tag.name) %></td>
+                 <td><%= link_to tag.name, admin_tag_path(tag.name) %></td>
+                 <td><%= tag.taggings_count %></td>
+                 <td>
+                   <%= link_to edit_admin_tag_path(tag.name), remote: true do %>
+                     <button type="button" class="btn light-blue-btn">
+                       <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                       Edit
+                     </button>
+                   <% end %>
+                   <%= link_to admin_tag_path(tag.name), data: { confirm: 'Are you sure?' }, method: :delete do %>
+                     <button type="button" class="btn light-orange-btn">
+                       <i class="fa fa-trash fa-fw" aria-hidden="true"></i>
+                       Delete
+                     </button>
+                   <% end %>
+                 </td>
+               </tr>
+             <% end %>
+           </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="apple_pagination text-center">
+      <%= will_paginate @tags %>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade my-tags-modal " id="myModal" tabindex="-1" role="dialog">
+</div>

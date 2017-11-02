@@ -3,11 +3,17 @@
 module Admin
   class HighlightsController < Admin::ApplicationController
     def index
-      @highlights = Highlight.all.paginate(page: params[:page], per_page: 10)
+      @highlights = Highlight.all
+                             .order(created_at: :asc)
+                             .paginate(page: params[:page], per_page: 10)
     end
 
     def new
       @highlight = Highlight.new
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def create
@@ -21,6 +27,10 @@ module Admin
 
     def edit
       @highlight = Highlight.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def update

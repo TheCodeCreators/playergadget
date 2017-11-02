@@ -4,6 +4,7 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
   has_many :comments
+  has_many :articles
 
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

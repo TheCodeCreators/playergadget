@@ -7,14 +7,20 @@ document.addEventListener("turbolinks:load", function() {
 
       reader.onload = function (e) {
         $('#img_prev')
-          .attr('src', e.target.result)
-          .width(320)
-          .height(180);
+        .attr('src', e.target.result);
+        $('.placeholder').addClass('hidden');
       };
       reader.readAsDataURL(input.files[0]);
     }
   });
   $('.datepicker').datepicker({
       dateFormat: 'dd-mm-yy'
+  });
+  // initializes a select2 with tagging support
+  $('.my-tags-input').each(function() {
+    $(this).select2({
+      tags: true,
+      tokenSeparators: [','],
+    });
   });
 });

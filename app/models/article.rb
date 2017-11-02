@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  # Test social media features:
+  # Facebook: https://developers.facebook.com/tools/debug
+  # Twitter: https://cards-dev.twitter.com/validator
   extend FriendlyId
   belongs_to :user
   has_many :comments, as: :commentable
@@ -11,12 +14,13 @@ class Article < ApplicationRecord
   mount_uploader :image, ArticleImageUploader
 
   validates :title, presence: true
+  validates :image, presence: true
 
   before_destroy :remove__all_image_versions
 
   scope :published, -> { where('published_at is not null AND published_at <= ?', Time.zone.now) }
-  scope :recent, -> { where('created_at > ?', 1.week.ago.beginning_of_day) }
-  scope :older, -> { where('created_at <= ?', 1.week.ago) }
+  scope :recent, -> { where('created_at > ?', 1.month.ago.beginning_of_day) }
+  scope :older, -> { where('created_at <= ?', 1.month.ago) }
 
   def published?
     published_at.nil? ? false : (published_at <= Time.zone.now)

@@ -1,22 +1,23 @@
 .drag-area {
   .drag-box {
-    height: 43vh;
+    height: 25vh;
     width:  100%;
     max-width: 81vw;
-    border: 5px dashed #ccc;
+    border: 5px dashed #238faf;
     background: #fff;
     border-radius: 4px;
+    cursor: pointer;
   }
 
   .inside-uploader {
-    margin-top: 11vh;
+    margin-top: 45px;
+    color: #30d5a9;
   }
 
   .drag-and-drop {
     margin-top: 15px;
-    font-family: 'Open Sans Regular';
     font-size: 44,8pt;
-    color: #aeaeae;
+    color: #238faf;
   }
 }
 .image-input {
@@ -39,7 +40,7 @@
 }
 
 #dropzonePreview {
-  margin-top: 42px;
+  margin-top: 20px;
 }
 
 .dz-error-mark, .dz-success-mark {
@@ -47,7 +48,6 @@
 }
 
 .form-errors {
-  font-family: "Open Sans Semibold";
   font-size: 17px;
   clear: both;
 }

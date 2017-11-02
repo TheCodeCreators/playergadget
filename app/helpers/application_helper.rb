@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def display_ads?
-    ENV['RAILS_ENV'] == 'production'
+    ENV['RAILS_ENV'] == 'production' || ENV['RAILS_ENV'] == 'staging'
   end
 
   def can_show_session_links(page)
@@ -24,13 +24,12 @@ module ApplicationHelper
   end
 
   def generate_articles_list
-    Article.includes(:user)
+    Article.published.includes(:user)
            .references(:user)
            .order('articles.title ASC')
            .map { |article|
              ["#{article.title} //
-              #{article.user.name} //
-              #{article.published? ? 'Live' : 'Draft'}",
+              #{article.user.name}",
               article.id]
            }
   end
@@ -41,5 +40,15 @@ module ApplicationHelper
       collection << [k.humanize, k]
     end
     collection
+  end
+
+  # Returns a list with all object's tags
+  def get_object_tags(object)
+    return if object.tag_list.blank?
+    tags = ''
+    object.tag_list.each do |tag|
+      tags += "<li><span><a href='" + admin_tag_path(tag) + "' class='badge badge-default'>" + tag + '</a></span></li>'
+    end
+    "<ul class='list-inline'>" + tags + '</ul>'
   end
 end

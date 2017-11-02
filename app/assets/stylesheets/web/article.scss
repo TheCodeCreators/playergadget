@@ -1,3 +1,52 @@
+//.social-buttons {
+//  position: absolute;
+//  top: 30%;
+//  left: -53px;
+//  z-index: 99;
+//  padding: 0 0 10px;
+//  width: 100%;
+//  box-sizing: border-box;
+//  cursor: pointer;
+//  .fb-icon {
+//    color: #4367b1;
+//  }
+//  .twitter-icon {
+//    color: #1ea1f3;
+//  }
+//
+//  $size: 30px;
+//
+//  .social-share-button {
+//    .ssb-icon {
+//      background-size: $size $size;
+//      height: $size;
+//      width: $size;
+//      display: block;
+//      margin-bottom: 10px;
+//    }
+//  }
+//}
+//@media(max-width: 768px) {
+//  .social-buttons {
+//    position: relative;
+//    left: 0;
+//    .social-share-button {
+//      .ssb-icon {
+//        display: inline-block;
+//      }
+//    }
+//  }
+//  .fb-icon {
+//    float: left;
+//    margin-right: 10px;
+//  }
+//}
+
+.twitter-share-button {
+  display: inline;
+  margin-bottom: -6px;
+}
+
 .article {
   background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.8), rgba(0,0,0,0.9));
   img {
@@ -11,7 +60,6 @@
   background: white;
   font-size: 1.4em;
   font-weight: 500;
-  padding: 1em 3em;
 }
 
 .my-tabpanel {
@@ -54,4 +102,107 @@
   border-color: #2BBCF1;
   background: url("/images/bg_pattern.png") repeat left top;
   color:#fff;
+  .article-date {
+    font-size: 0.7em;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+
+.side-articles-list {
+  .title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .my-side-article-panel {
+    border-color: #2BBCF1;
+    overflow: hidden;
+    .panel-body {
+      border: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      height: 150px;
+      width: 100%;
+    	transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+      -webkit-transition: all 1s ease;
+      -o-transition: all 1s ease;
+    }
+
+    .panel-body:hover {
+      max-height: 150px;
+      transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+    }
+    .panel-footer {
+      border: none;
+      position: relative;
+      color: #fff;
+      padding: 2px;
+      h5 {
+        font-weight: bold;
+        font-size: 16px;
+      }
+      background: url("/images/bg_pattern.png") repeat left top;
+    }
+  }
+}
+.youtube-player {
+  position: relative;
+  padding-bottom: 56.23%;
+  /* Use 75% for 4:3 videos */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  margin: 5px;
+}
+
+.youtube-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: transparent;
+}
+
+.youtube-player img {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  height: auto;
+  cursor: pointer;
+  -webkit-transition: .4s all;
+  -moz-transition: .4s all;
+  transition: .4s all;
+}
+
+.youtube-player img:hover {
+  -webkit-filter: brightness(75%);
+}
+
+.youtube-player .play {
+  height: 72px;
+  width: 72px;
+  left: 50%;
+  top: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  position: absolute;
+  background: url("//i.imgur.com/TxzC70f.png") no-repeat;
+  cursor: pointer;
 }

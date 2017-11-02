@@ -33,3 +33,11 @@ production:
   pool: <%= pool_size %>
   username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
+
+staging:
+  adapter: postgresql
+  encoding: utf-8
+  database: playergadget
+  pool: <%= pool_size %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

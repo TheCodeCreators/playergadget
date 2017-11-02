@@ -3,7 +3,7 @@
 module Admin
   class ImagesController < Admin::ApplicationController
     def index
-      @images = Image.all.paginate(page: params[:page], per_page: 10)
+      @images = Image.all.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     end
 
     def show
@@ -41,7 +41,7 @@ module Admin
     private
 
     def image_params
-      params.require(:image).permit(:info, :file, :tag_list)
+      params.require(:image).permit(:info, :file, tag_list: [])
     end
   end
 end
