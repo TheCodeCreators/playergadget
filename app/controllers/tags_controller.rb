@@ -2,8 +2,10 @@
 
 class TagsController < ApplicationController
   def show
+    @tag = ActsAsTaggableOn::Tag.find_by(name: params[:id])
     @highlights = Highlight.includes(:article).references(:article).active
     @tags = ActsAsTaggableOn::Tag.where('taggings_count > 0')
+                                 .where.not('name = ?', params[:id])
                                  .order(taggings_count: :desc)
                                  .includes(:taggings)
                                  .references(:taggings)

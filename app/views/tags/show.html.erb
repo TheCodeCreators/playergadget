@@ -1,4 +1,22 @@
-<br><br><br><br>
+<div class="container with-padding-top">
+  <div class="row top-articles">
+    <div class="col-md-8">
+      <%= render partial: '/home/top_articles', locals: { article: @highlights.top_left[0].article } %>
+    </div>
+    <div class="col-md-4">
+      <%= render partial: '/home/top_articles', locals: { article: @highlights.top_right[0].article } %>
+    </div>
+  </div>
+</div>
+
+<div class="container with-less-margin-top">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'shared/responsive' %>
+    </div>
+  </div>
+</div>
+
 <div class="jumbotron my-jumbotron separator">
   <div class="container">
     <div class="row text-center">
@@ -26,6 +44,9 @@
   <div class="row">
 
     <div class="col-md-8 all-articles-row" id="articles">
+      <h2 class="tag-title">
+        <%= @tag.name %>
+      </h2>
       <%= render @articles %>
     </div>
 
