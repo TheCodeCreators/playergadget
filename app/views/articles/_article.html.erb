@@ -1,58 +1,30 @@
-<div class="panel panel-default">
+<div class="panel panel-default articles-panel">
   <div class="panel-body">
-
-    <article class="article-show">
-      <div class="article-date">
-        <%= @article.published_at.present? ? time_ago_in_words(@article.published_at) : 'draft' %> ago
-      </div>
-      <%= @article.body.html_safe %>
-      <div class="social-buttons">
-        <div data-turbolinks-no-cache class="fb-share-button" 
-        data-href="<%= request.original_url %>" 
-        data-layout="button">
-        </div>
-      </div>
-      <hr id="comments">
-      <comments class="comments-section">
-        <h4><%= pluralize(@article.comments_count, 'Comment') %>:</h4>
-
-        <div class="row">
-          <div class="col-md-12">
-            <%= render(partial: 'comments/comment', collection: @comments) %>
+    <%= link_to article_path(article) do %>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="article-image reload-image" style="background: url(<%= article.image.thumb %>); background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
           </div>
         </div>
+        <div class="col-md-9">
+          <h3 class="article-title">
+            <%= article.title %>
+          </h3>
 
-        <div class="row with-less-margin-top">
-          <div class="col-md-12">
-            <div class="form-group">
-              <% if current_user.nil? %>
-                <div class="" data-toggle="modal" data-target="#loginModal">
-                  <div class="row">
-                    <div class="col-xs-1">
-                      <i class="fa fa-comment" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-11">
-                      <%= text_area_tag :body, nil, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
-                    </div>
-                  </div>
-                </div>
-              <% else %>
-                <%= form_for [@article, Comment.new] do |f| %>
-                  <div class="row">
-                    <div class="col-xs-1">
-                      <i class="fa fa-comment" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-11">
-                      <%= f.text_area :body, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
-                      <%= f.submit "Add Comment", class: "hidden" %>
-                    </div>
-                  </div>
-                <% end %>
+          <div class="intro">
+            <%= article.intro %>
+          </div>
+
+          <div class="preview-date">
+            <%= article.created_at.strftime('%d %B, %Y') %>
+            <span class="preview-comments pull-right">
+              <% if article.comments_count.positive? %>
+                <%= article.comments_count %> <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>
               <% end %>
-            </div>
+            </span>
           </div>
         </div>
-      </comments>
-    </article>
+      </div>
+    <% end %>
   </div>
 </div>
