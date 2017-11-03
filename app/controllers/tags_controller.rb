@@ -4,7 +4,9 @@ class TagsController < ApplicationController
   before_action :set_tag, only: %i[show]
   before_action :set_hightlights, only: %i[show]
 
+  # rubocop:disable Metrics/AbcSize
   def show
+    redirect_to root_path if @tag.nil?
     @tags = ActsAsTaggableOn::Tag.where('taggings_count > 0 and taggable_type = ?', 'Article')
                                  .where.not('name = ?', params[:id])
                                  .order(taggings_count: :desc)
@@ -19,6 +21,7 @@ class TagsController < ApplicationController
       format.js
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   private
 
