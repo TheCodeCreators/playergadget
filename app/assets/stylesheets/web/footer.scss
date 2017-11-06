@@ -23,15 +23,14 @@ $colDefault     : #9d9d9d;
     }
     &.smaller-font {
       font-size: 12px;
+      letter-spacing: -1px;
     }
   }
-  .smaller-font {
-    font-size: 12px;
-    letter-spacing: -1px;
-  }
+
   .pg-color {
     color: #3ccaff !important;
   }
+
   .darker-grey {
     color: #585858;
   }
