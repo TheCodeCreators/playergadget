@@ -7,11 +7,8 @@ class TagsController < ApplicationController
   # rubocop:disable Metrics/AbcSize
   def show
     redirect_to root_path if @tag.nil?
-    @tags = ActsAsTaggableOn::Tag.where('taggings_count > 0 and taggable_type = ?', 'Article')
-                                 .where.not('name = ?', params[:id])
-                                 .order(taggings_count: :desc)
-                                 .includes(:taggings)
-                                 .references(:taggings)
+    # Refactored and limited to published articles only
+    @tags = Article.published.tags_on(:tags).where.not('name = ?', params[:id])
     @articles = Article.tagged_with(params[:id])
                        .published
                        .order(published_at: :desc)
