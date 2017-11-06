@@ -1,4 +1,37 @@
 .comments-section {
+  .icon-avatar-placeholder {
+    font-size: 33px;
+    color: #24c8ff;
+  }
+
+  .with-avatar {
+    .user-avatar-placeholder {
+      font-size: 23px;
+      margin-top: -6px;
+    }
+    .user-avatar {
+      img {
+        width: 38px;
+        height: 38px;
+        max-width: 38px;
+        margin-top: -3px;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .with-margin-left {
+      margin-left: -15px;
+    }
+    .user-avatar-placeholder {
+      margin-left: -15px;
+    }
+    .user-avatar {
+      img {
+        margin-left: -15px;
+      }
+    }
+  }
   .comments-input {
     border-radius: 22px;
     border: 1px solid #dddfe2;
@@ -6,7 +39,7 @@
     flex-wrap: wrap;
     height: 36px;
     overflow: auto;
-    resize: vertical; 
+    resize: none;
   }
 
   .comment {

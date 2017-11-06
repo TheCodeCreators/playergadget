@@ -1,7 +1,7 @@
 <div class="comment" id="comment-<%= comment.id %>">
   <div class="row comment-row">
     <div class="col-xs-12 inner-comment-row">
-      <i class="fa fa-user-circle-o fa-lg fa-fw" aria-hidden="true"></i>
+      <%= design_avatar(comment.user) %>
       <span class="comment-author">
         <%= comment.user.current_name %>
       </span>
@@ -39,14 +39,7 @@
           <div class="col-md-12">
             <% if current_user.nil? %>
               <div class="" data-toggle="modal" data-target="#loginModal">
-                <div class="row">
-                  <div class="col-xs-1">
-                    <i class="fa fa-comment" aria-hidden="true"></i>
-                  </div>
-                  <div class="col-xs-11">
-                    <%= text_area_tag :body, nil, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
-                  </div>
-                </div>
+                <%= text_area_tag :body, nil, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
               </div>
             <% else %>
               <%= form_for [comment, Comment.new] do |f| %>
