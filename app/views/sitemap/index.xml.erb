@@ -17,7 +17,7 @@
   <% @tags.each do |tag| %>
     <url>
       <loc><%= tagged_path(tag.name) %></loc>
-      <lastmod><%= Article.published.tagged_with('MMORPG1').order(updated_at: :desc).first.updated_at.strftime('%Y-%m-%d') %></lastmod>
+      <lastmod><%= Article.published.tagged_with(tag).order(updated_at: :desc).first.updated_at.strftime('%Y-%m-%d') %></lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
