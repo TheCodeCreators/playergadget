@@ -31,23 +31,21 @@
           <div class="col-md-12">
             <div class="form-group">
               <% if current_user.nil? %>
-                <div class="" data-toggle="modal" data-target="#loginModal">
-                  <div class="row">
-                    <div class="col-xs-1">
-                      <i class="fa fa-comment" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-11">
-                      <%= text_area_tag :body, nil, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
-                    </div>
+                <div class="row" data-toggle="modal" data-target="#loginModal">
+                  <div class="col-xs-1">
+                    <i class="fa fa-user-circle-o fa-fw with-margin-left icon-avatar-placeholder"></i>
+                  </div>
+                  <div class="col-xs-10 comment-area pull-left">
+                    <%= text_area_tag :body, nil, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
                   </div>
                 </div>
               <% else %>
                 <%= form_for [@article, Comment.new] do |f| %>
                   <div class="row">
-                    <div class="col-xs-1">
-                      <i class="fa fa-comment" aria-hidden="true"></i>
+                    <div class="col-xs-1 with-avatar">
+                      <%= design_avatar(current_user) %>
                     </div>
-                    <div class="col-xs-11">
+                    <div class="col-xs-10">
                       <%= f.text_area :body, placeholder: "Write a comment...", class: 'form-control comments-input pull-left' %>
                       <%= f.submit "Add Comment", class: "hidden" %>
                     </div>
