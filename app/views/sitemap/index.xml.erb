@@ -16,7 +16,7 @@
   <% end %>
   <% @tags.each do |tag| %>
     <url>
-      <loc><%= tagged_path(tag.name) %></loc>
+      <loc><%= tagged_url(tag.slug) %></loc>
       <lastmod><%= Article.published.tagged_with(tag).order(updated_at: :desc).first.updated_at.strftime('%Y-%m-%d') %></lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>

@@ -26,17 +26,17 @@
            <tbody>
              <% @tags.each do |tag| %>
                <tr>
-                 <td><%= link_to tag.id, admin_tag_path(tag.name) %></td>
-                 <td><%= link_to tag.name, admin_tag_path(tag.name) %></td>
+                 <td><%= link_to tag.id, admin_tag_path(tag.slug) %></td>
+                 <td><%= link_to tag.name, admin_tag_path(tag.slug) %></td>
                  <td><%= tag.taggings_count %></td>
                  <td>
-                   <%= link_to edit_admin_tag_path(tag.name), remote: true do %>
+                   <%= link_to edit_admin_tag_path(tag.slug), remote: true do %>
                      <button type="button" class="btn light-blue-btn">
                        <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
                        Edit
                      </button>
                    <% end %>
-                   <%= link_to admin_tag_path(tag.name), data: { confirm: 'Are you sure?' }, method: :delete do %>
+                   <%= link_to admin_tag_path(tag.slug), data: { confirm: 'Are you sure?' }, method: :delete do %>
                      <button type="button" class="btn light-orange-btn">
                        <i class="fa fa-trash fa-fw" aria-hidden="true"></i>
                        Delete

@@ -7,8 +7,8 @@
       </div>
       <%= @article.body.html_safe %>
       <div>
-        <% @article.tag_list.each do |tag| %>
-          <span class="btn btn-tag"><%= link_to tag, tagged_path(tag) %></span>
+        <% @article.tags.each do |tag| %>
+          <span class="btn btn-tag"><%= link_to tag.name, tagged_path(tag.slug) %></span>
         <% end %>
       </div>
       <div class="social-buttons">

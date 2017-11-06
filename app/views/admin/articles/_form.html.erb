@@ -45,7 +45,7 @@
           <div class="form-group">
             <% Article.tag_counts.each do |tag| %>
               <button type="button" class="btn light-blue-btn tag-btn">
-                <%= link_to tag.name, admin_tag_path(tag.name), target: :blank %>
+                <%= link_to tag.name, admin_tag_path(tag.slug), target: :blank %>
                 <span class="badge"><%= tag.taggings_count %></span>
               </button>
             <% end %>

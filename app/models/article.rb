@@ -26,6 +26,10 @@ class Article < ApplicationRecord
     published_at.nil? ? false : (published_at <= Time.zone.now)
   end
 
+  def tag_slug_list
+    tags.map(&:slug)
+  end
+
   private
 
   # Keep in mind images uploaded to the Image model will not be deleted,
@@ -33,4 +37,5 @@ class Article < ApplicationRecord
   def remove__all_image_versions
     FileUtils.rm_r(Rails.root.join('public', "/uploads/article/image/#{id}"), force: true)
   end
+
 end

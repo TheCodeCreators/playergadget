@@ -44,10 +44,10 @@ module ApplicationHelper
 
   # Returns a list with all object's tags
   def get_object_tags(object)
-    return if object.tag_list.blank?
+    return unless object.tags.any?
     tags = ''
-    object.tag_list.each do |tag|
-      tags += "<li><span><a href='" + admin_tag_path(tag) + "' class='badge badge-default'>" + tag + '</a></span></li>'
+    object.tags.each do |tag|
+      tags += "<li><span><a href='" + admin_tag_path(tag.slug) + "' class='badge badge-default'>" + tag.name + '</a></span></li>'
     end
     "<ul class='list-inline'>" + tags + '</ul>'
   end

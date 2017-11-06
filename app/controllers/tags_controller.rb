@@ -9,7 +9,7 @@ class TagsController < ApplicationController
     redirect_to root_path if @tag.nil?
     # Refactored and limited to published articles only
     @tags = Article.published.tags_on(:tags).where.not('name = ?', params[:id])
-    @articles = Article.tagged_with(params[:id])
+    @articles = Article.tagged_with(@tag.name)
                        .published
                        .order(published_at: :desc)
                        .paginate(page: params[:page], per_page: 5)
@@ -23,7 +23,7 @@ class TagsController < ApplicationController
   private
 
   def set_tag
-    @tag = ActsAsTaggableOn::Tag.find_by(name: params[:id])
+    @tag = ActsAsTaggableOn::Tag.friendly.find(params[:id])
   end
 
   def set_hightlights
