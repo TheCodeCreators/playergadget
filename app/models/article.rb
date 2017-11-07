@@ -37,5 +37,4 @@ class Article < ApplicationRecord
   def remove__all_image_versions
     FileUtils.rm_r(Rails.root.join('public', "/uploads/article/image/#{id}"), force: true)
   end
-
 end

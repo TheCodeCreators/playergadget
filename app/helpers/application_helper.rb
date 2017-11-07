@@ -47,7 +47,8 @@ module ApplicationHelper
     return unless object.tags.any?
     tags = ''
     object.tags.each do |tag|
-      tags += "<li><span><a href='" + admin_tag_path(tag.slug) + "' class='badge badge-default'>" + tag.name + '</a></span></li>'
+      tags += "<li><span><a href='" + admin_tag_path(tag.slug) + "' class='badge badge-default'>" +
+       tag.name + '</a></span></li>'
     end
     "<ul class='list-inline'>" + tags + '</ul>'
   end

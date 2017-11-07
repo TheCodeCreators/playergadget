@@ -4,7 +4,6 @@ class TagsController < ApplicationController
   before_action :set_tag, only: %i[show]
   before_action :set_hightlights, only: %i[show]
 
-  # rubocop:disable Metrics/AbcSize
   def show
     redirect_to root_path if @tag.nil?
     # Refactored and limited to published articles only
@@ -18,7 +17,6 @@ class TagsController < ApplicationController
       format.js
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   private
 
