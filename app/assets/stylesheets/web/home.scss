@@ -115,6 +115,10 @@ html {
 
 .separator {
   background: url("/images/bg_pattern.png") repeat left top;
+  &.half-size {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .main-page-tag-list {
