@@ -12,6 +12,6 @@ class ArticlesController < ApplicationController
                             .where
                             .not(id: @article.id)
                             .order(published_at: :desc)
-                            .limit(5)
+                            .limit(3)
   end
 end
