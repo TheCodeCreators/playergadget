@@ -4,10 +4,13 @@ class TagsController < ApplicationController
   before_action :set_tag, only: %i[show]
   before_action :set_hightlights, only: %i[show]
 
+  # rubocop:disable Metrics/AbcSize
   def show
     redirect_to root_path if @tag.nil?
-    # Refactored and limited to published articles only
-    @tags = Article.published.tags_on(:tags).where.not('name = ?', params[:id])
+    @tags = Article.published.tags_on(:tags)
+                   .where
+                   .not('name = ?', params[:id])
+                   .order(taggings_count: :desc)
     @articles = Article.tagged_with(@tag.name)
                        .published
                        .order(published_at: :desc)
@@ -17,6 +20,7 @@ class TagsController < ApplicationController
       format.js
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   private
 

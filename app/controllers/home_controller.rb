@@ -8,7 +8,7 @@ class HomeController < ApplicationController
                        .paginate(page: params[:page], per_page: 7)
     @highlights = Highlight.includes(:article).references(:article).active
     # Refactored and limited to published articles only
-    @tags = Article.published.tags_on(:tags)
+    @tags = Article.published.tags_on(:tags).order(taggings_count: :desc)
     respond_to do |format|
       format.html
       format.js
