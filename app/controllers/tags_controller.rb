@@ -8,7 +8,7 @@ class TagsController < ApplicationController
   def show
     redirect_to root_path if @tag.nil?
     # Do not load unecessary data on ajax requests
-    if !request.xhr?
+    unless request.xhr?
       @tags = Article.published.tags_on(:tags)
                      .where
                      .not('name = ?', params[:id])

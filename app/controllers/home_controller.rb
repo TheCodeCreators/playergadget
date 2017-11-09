@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   # home
   def index
     # Do not load unecessary data on ajax requests
-    if !request.xhr?
+    unless request.xhr?
       # Refactored and limited to published articles only
       @tags = Article.published.tags_on(:tags).order(taggings_count: :desc)
       @highlights = Highlight.includes(:article).references(:article).active
