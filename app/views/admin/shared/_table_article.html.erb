@@ -1,7 +1,12 @@
 <tr class="info-tr">
   <td><%= design_avatar(article.user) %></td>
   <td class="text-left"><%= article.user.current_name %></td>
-  <td><%= article.title %></td>
+  <td>
+    <span class="badge"><%= article.id %></span>
+  </td>
+  <td>
+    <%= article.title %>
+  </td>
   <td><%= raw get_object_tags(article) %></td>
   <td>
     <%= article.published_at.present? ? article.published_at.strftime("%b %d, %Y %H:%M") : "Draft" %>
