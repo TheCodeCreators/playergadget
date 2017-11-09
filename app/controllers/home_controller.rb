@@ -3,12 +3,15 @@
 class HomeController < ApplicationController
   # home
   def index
+    # Do not load unecessary data on ajax requests
+    unless request.xhr?
+      # Refactored and limited to published articles only
+      @tags = Article.published.tags_on(:tags).order(taggings_count: :desc)
+      @highlights = Highlight.includes(:article).references(:article).active
+    end
     @articles = Article.published
                        .order(published_at: :desc)
                        .paginate(page: params[:page], per_page: 7)
-    @highlights = Highlight.includes(:article).references(:article).active
-    # Refactored and limited to published articles only
-    @tags = Article.published.tags_on(:tags).order(taggings_count: :desc)
     respond_to do |format|
       format.html
       format.js
