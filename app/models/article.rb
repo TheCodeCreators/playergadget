@@ -13,8 +13,12 @@ class Article < ApplicationRecord
   friendly_id :title, use: :slugged
   mount_uploader :image, ArticleImageUploader
 
-  validates :title, presence: true
-  validates :image, presence: true
+  validates :title,
+            :teaser,
+            :intro,
+            :body,
+            :image,
+            presence: true
 
   before_destroy :remove__all_image_versions
 
