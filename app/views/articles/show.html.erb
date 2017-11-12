@@ -40,8 +40,10 @@
     <div class="col-md-8">
       <%= render 'show_article' %>
 
-      <%= render 'related_articles' %>
-      <%= render 'shared/responsive' %>
+      <% if @articles %>
+        <%= render 'related_articles' %>
+        <%= render 'shared/responsive' %>
+      <% end %>
     </div>
 
     <div class="col-md-4">
