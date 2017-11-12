@@ -1,3 +1,18 @@
+<%= content_for :social_networks  do %>
+  <meta property="og:title" content="PlayerGadget" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= request.base_url %>/uploads/article/image/27/large_c_s_p.png" />
+  <meta property="og:description" content="Your daily dose of gamer relevant news." />
+  <meta property="og:site_name" content="PlayerGadget" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@player_gadget" />
+  <meta name="twitter:title" content="PlayerGadget" />
+  <meta name="twitter:description" content="Your daily dose of gamer relevant news." />
+  <meta name="twitter:image" content="<%= request.base_url %>/uploads/article/image/27/large_c_s_p.png" />
+<% end %>
+
 <div class="container with-padding-top">
   <div class="row top-articles">
     <div class="col-md-8">
@@ -20,7 +35,6 @@
 <div class="jumbotron my-jumbotron separator">
   <div class="container">
     <div class="row text-center">
-
       <div class="col-md-3">
         <%= render partial: 'small_article', locals: { article: @highlights.line_1[0].article } %>
       </div>
@@ -33,18 +47,20 @@
       <div class="col-md-3">
         <%= render partial: 'small_article', locals: { article: @highlights.line_4[0].article } %>
       </div>
-
     </div>
 
+    <%= render 'shared/tags' %>
   </div>
+
 </div>
 
-<div class="main-container container">
+<div class="main-container container with-infinite-scroll">
 
   <div class="row">
 
     <div class="col-md-8 all-articles-row" id="articles">
       <%= render @articles %>
+      <%= render 'shared/responsive' %>
     </div>
 
     <div class="hidden" id="infinite-scrolling">
@@ -54,6 +70,8 @@
 
     <div class="col-md-4">
       <%= render 'shared/skyscrapper' %>
+
+      <%= render 'shared/fb_page_like_without_timeline' %>
 
       <%= render 'shared/lateral_footer' %>
     </div>

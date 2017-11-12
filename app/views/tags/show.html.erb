@@ -1,0 +1,88 @@
+<%= content_for :keywords do %>
+  <meta name="keywords" content="<%= generate_articles_keywords(@articles) %>, <%= @tag.name %>">
+<% end %>
+<%= content_for :title  do %>
+  <title>PlayerGadget - <%= @tag.name %></title>
+<% end %>
+<%= content_for :social_networks  do %>
+  <meta property="og:title" content="<%= @tag.name %>" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= request.base_url + @articles.first.image.to_s %>" />
+  <meta property="og:description" content="About <%= @tag.name %> on PlayerGadget" />
+  <meta property="og:site_name" content="PlayerGadget" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@player_gadget" />
+  <meta name="twitter:title" content="<%= @tag.name %>" />
+  <meta name="twitter:description" content="About <%= @tag.name %> on PlayerGadget" />
+  <meta name="twitter:image" content="<%= request.base_url + @articles.first.image.to_s %>" />
+<% end %>
+
+<div class="container with-padding-top">
+  <div class="row top-articles">
+    <div class="col-md-8">
+      <%= render partial: '/home/top_articles', locals: { article: @highlights.top_left[0].article } %>
+    </div>
+    <div class="col-md-4">
+      <%= render partial: '/home/top_articles', locals: { article: @highlights.top_right[0].article } %>
+    </div>
+  </div>
+</div>
+
+<div class="container with-less-margin-top">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'shared/responsive' %>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron my-jumbotron separator">
+  <div class="container">
+    <div class="row text-center">
+
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_1[0].article } %>
+      </div>
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_2[0].article } %>
+      </div>
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_3[0].article } %>
+      </div>
+      <div class="col-md-3">
+        <%= render partial: '/home/small_article', locals: { article: @highlights.line_4[0].article } %>
+      </div>
+    </div>
+
+    <%= render 'shared/tags' %>
+  </div>
+</div>
+
+<div class="main-container container with-infinite-scroll">
+
+  <div class="row">
+
+    <div class="col-md-8 all-articles-row" id="articles">
+      <h2 class="tag-title">
+        <%= @tag.name %>
+      </h2>
+      <%= render @articles %>
+      <%= render 'shared/responsive' %>
+    </div>
+
+    <div class="hidden" id="infinite-scrolling">
+      <%= will_paginate @articles %>
+    </div>
+
+
+    <div class="col-md-4">
+      <%= render 'shared/skyscrapper' %>
+      <%= render 'shared/fb_page_like' %>
+      <%= render 'shared/lateral_footer' %>
+    </div>
+
+  </div>
+
+</div>

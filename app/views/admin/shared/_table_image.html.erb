@@ -4,6 +4,9 @@
       <%= image_tag image.file_url, class: "image-preview" %>
     <% end %>
   </td>
+  <td>
+    <span class="badge"><%= image.id %></span>
+  </td>
   <td><%= link_to image.info, admin_image_path(image) %></td>
   <td><%= image.file_url %></td>
   <td><%= image.created_at.strftime("%b %d, %Y %H:%M") %></td>

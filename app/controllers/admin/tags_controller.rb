@@ -44,7 +44,7 @@ module Admin
     private
 
     def set_tag
-      @tag = ActsAsTaggableOn::Tag.find_by(name: params[:id])
+      @tag = ActsAsTaggableOn::Tag.friendly.find(params[:id])
     end
 
     def tag_params

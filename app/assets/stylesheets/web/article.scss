@@ -59,6 +59,26 @@
 .article-show {
   background: white;
   font-size: 1.4em;
+  .article-date {
+    font-size: 0.7em;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+
+.related-articles-title {
+  color: #A9A9A9;
+}
+
+.related-articles-section {
+  a {
+    cursor: pointer;
+    color: #f5f5f5;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #2BBCF1;
+  };
 }
 
 .my-tabpanel {
@@ -81,6 +101,7 @@
       border-top-right-radius: 0px;
     }
   }
+
   .nav-tabs {
     border-bottom: none;
   }
@@ -116,7 +137,6 @@
   background-color: #043040;
   border: none;
 }
-
 
 .side-articles-list {
   .title {
@@ -214,4 +234,19 @@
   position: absolute;
   background: url("//i.imgur.com/TxzC70f.png") no-repeat;
   cursor: pointer;
+}
+
+.btn {
+  &.btn-tag {
+    border: none;
+    color: rgba(0,0,0,.6);
+    background: rgba(0,0,0,.05);
+    a {
+      text-decoration: none;
+      color: rgba(0,0,0,.6);
+    }
+  }
+}
+.tag-title {
+  color: white;
 }

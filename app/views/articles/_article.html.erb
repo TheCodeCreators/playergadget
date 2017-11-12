@@ -3,7 +3,7 @@
     <%= link_to article_path(article) do %>
       <div class="row">
         <div class="col-md-3">
-          <div class="article-image reload-image" style="background: url(<%= article.image.thumb %>); background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
+          <div class="article-image reload-image" style="background: url(<%= article.image.thumb %>) no-repeat center center; background-size: cover;" data-image-name="<%= article.image.file.filename %>" data-id="<%= article.id %>">
           </div>
         </div>
         <div class="col-md-9">
@@ -16,7 +16,7 @@
           </div>
 
           <div class="preview-date">
-            <%= article.created_at.strftime('%d %B, %Y') %>
+            <%= article.published_at.strftime('%d %B, %Y') %>
             <span class="preview-comments pull-right">
               <% if article.comments_count.positive? %>
                 <%= article.comments_count %> <i class="fa fa-comment-o comment-icon" aria-hidden="true"></i>

@@ -3,8 +3,10 @@ class SitemapController < ActionController::Base
 
   def index
     headers['Content-Type'] = 'application/xml'
+    @articles = Article.published
+    @tags = Article.published.tags_on(:tags)
     respond_to do |format|
-      format.xml { [@articles = Article.published] }
+      format.xml
     end
   end
 end

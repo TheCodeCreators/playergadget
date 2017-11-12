@@ -17,7 +17,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="newest">
       <ul class="list-group">
-        <% Article.all.each do |article| %>
+        <% Article.last(5).each do |article| %>
           <li class="list-group-item">
             <%= article.title %>
           </li>
@@ -26,7 +26,7 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="popular">
       <ul class="list-group">
-        <% Article.all.each do |article| %>
+        <% Article.first(5).each do |article| %>
           <li class="list-group-item">
             <%= article.title %>
           </li>
