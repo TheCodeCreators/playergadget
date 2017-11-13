@@ -19,6 +19,11 @@ class ArticlesController < ApplicationController
                             .not(id: @article.id)
                             .order(published_at: :desc)
                             .limit(3)
+    @tag_list = @article.tag_list
+    @articles = Article.tagged_with(@tag_list, any: true)
+                       .published
+                       .order(published_at: :desc)
+                       .paginate(page: params[:page], per_page: 5)
   end
   # rubocop:enable Metrics/AbcSize
 end

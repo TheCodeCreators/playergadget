@@ -1,0 +1,38 @@
+<div class="my-tabpanel with-margin-top">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">
+        <h4>Most recent articles</h4>
+      </a>
+    </li>
+    <li role="presentation" class="with-more-padding">
+      <a href="#popular" aria-controls="popular" role="tab" data-toggle="tab" class="with-more-padding">
+        <h4>Articles archive</h4>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="newest">
+      <ul class="list-group">
+        <% Article.last(5).each do |article| %>
+          <li class="list-group-item">
+            <%= article.title %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="popular">
+      <ul class="list-group">
+        <% Article.first(5).each do |article| %>
+          <li class="list-group-item">
+            <%= article.title %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</div>

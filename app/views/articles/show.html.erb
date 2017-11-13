@@ -39,10 +39,19 @@
   <div class="row">
     <div class="col-md-8">
       <%= render 'show_article' %>
+
+      <% if @articles %>
+        <%= render 'shared/responsive' %>
+        <%= render 'related_articles' %>
+      <% end %>
     </div>
 
     <div class="col-md-4">
       <%= render 'shared/skyscrapper' %>
+
+      <div class="articles-tab-panel">
+        <%#= render 'articles_tab_panel' %>
+      </div>
 
       <%= render 'side_articles' %>
 
