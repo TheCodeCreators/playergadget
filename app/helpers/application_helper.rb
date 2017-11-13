@@ -58,4 +58,8 @@ module ApplicationHelper
     articles.each { |a| words << a.title }
     words.flatten.join(', ')
   end
+
+  def tag_name(tag)
+    tag.long_name || tag.name
+  end
 end
