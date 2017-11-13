@@ -48,7 +48,7 @@ module Admin
     end
 
     def tag_params
-      params.require(:acts_as_taggable_on_tag).permit(:id, :name)
+      params.require(:acts_as_taggable_on_tag).permit(:id, :name, :slug)
     end
   end
 end
