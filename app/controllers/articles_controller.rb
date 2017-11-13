@@ -22,6 +22,8 @@ class ArticlesController < ApplicationController
     @tag_list = @article.tag_list
     @articles = Article.tagged_with(@tag_list, any: true)
                        .published
+                       .where
+                       .not(id: @article.id)
                        .order(published_at: :desc)
                        .paginate(page: params[:page], per_page: 5)
   end
