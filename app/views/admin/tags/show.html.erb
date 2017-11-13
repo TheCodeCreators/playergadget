@@ -111,7 +111,7 @@
           </h3>
         </div>
         <div class="panel-body">
-          <%= @tag.description.html_safe %>
+          <%= @tag.description.try(:html_safe) %>
         </div>
       </div>
     </div>
