@@ -2,17 +2,23 @@
   <%= form_for(@tag, url: admin_tag_path(@tag.slug)) do |f| %>
 
     <div class="form-group">
-      <label>
-        <%= f.label :name %>
-      </label>
+      <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control my-admin-area-modal-input' %>
     </div>
 
     <div class="form-group">
-      <label>
-        <%= f.label :slug %>
-      </label>
+      <%= f.label :slug %> <small>(optional)</small>
       <%= f.text_field :slug, class: 'form-control my-admin-area-modal-input' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :long_name %> <small>(optional)</small>
+      <%= f.text_field :long_name, class: 'form-control my-admin-area-modal-input' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.cktext_area :description, class:"form-control", id: 'article-body' %>
     </div>
 
     <div class="form-group text-center">
