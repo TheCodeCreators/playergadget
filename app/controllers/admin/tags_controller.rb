@@ -17,10 +17,6 @@ module Admin
     end
 
     def edit
-      respond_to do |format|
-        format.html
-        format.js
-      end
     end
 
     def update
@@ -48,7 +44,7 @@ module Admin
     end
 
     def tag_params
-      params.require(:acts_as_taggable_on_tag).permit(:id, :name, :slug)
+      params.require(:acts_as_taggable_on_tag).permit(:id, :name, :slug, :long_name, :description)
     end
   end
 end

@@ -66,8 +66,9 @@
 
     <div class="col-md-8 all-articles-row" id="articles">
       <h2 class="tag-title">
-        <%= @tag.name %>
+        <%= tag_name(@tag) %>
       </h2>
+      <%= render 'description' if @tag.description.present? %>
       <%= render @articles %>
       <%= render 'shared/responsive' %>
     </div>
