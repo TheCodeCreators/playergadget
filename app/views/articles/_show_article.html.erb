@@ -16,6 +16,11 @@
         data-href="<%= request.original_url %>" 
         data-layout="button">
         </div>
+
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= request.original_url %>" data-text="<%= @article.title %>" data-count="horizontal" data-via="player_gadget">
+          Tweet
+        </a>
+        <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
       </div>
       <hr id="comments">
       <comments class="comments-section">
