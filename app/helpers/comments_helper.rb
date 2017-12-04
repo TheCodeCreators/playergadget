@@ -1,5 +1,4 @@
 module CommentsHelper
-
   # Returns comment's created_at date formatted.
   def comment_date(comment)
     if comment.created_at > Time.zone.now - 1.day
